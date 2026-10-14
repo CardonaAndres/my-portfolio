@@ -1,10 +1,17 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import type { Locale } from "@/core/interfaces/i18n.interface";
 import { DEFAULT_LOCALE, LOCALES } from "@/core/constants/i18n.constant";
 import { getDictionary } from "@/core/i18n";
+import { ArrowRight, Mail } from "lucide-react";
+import { TechIcon } from "@/core/components/icons";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
+}
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -20,8 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function HomePage({ params }: PageProps) {
-  const { lang } = await params;
+async function HeroSection({ langPromise }: { langPromise: Promise<{ lang: string }> }) {
+  const { lang } = await langPromise;
   const locale: Locale = LOCALES.includes(lang as Locale)
     ? (lang as Locale)
     : DEFAULT_LOCALE;
@@ -52,21 +59,62 @@ export default async function HomePage({ params }: PageProps) {
           {dict.hero.description}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 pt-4">
+        <div className="flex flex-wrap items-center gap-4 pt-2">
           <a
             href={`/${locale}#projects`}
-            className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-opacity"
           >
             {dict.hero.ctaProjects}
+            <ArrowRight className="w-4 h-4" />
           </a>
           <a
             href={`/${locale}#contact`}
-            className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-2 justify-center rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
           >
+            <Mail className="w-4 h-4 text-muted-foreground" />
             {dict.hero.ctaContact}
           </a>
         </div>
+
+        {/* Tech Stack Preview */}
+        <div className="pt-8 flex flex-col gap-3">
+          <p className="text-xs uppercase font-bold tracking-wider text-muted-foreground">
+            Stack Principal
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              { name: "react", label: "React" },
+              { name: "nextjs", label: "Next.js" },
+              { name: "typescript", label: "TypeScript" },
+              { name: "tailwind", label: "Tailwind CSS" },
+              { name: "nodejs", label: "Node.js" },
+              { name: "docker", label: "Docker" },
+            ].map((tech) => (
+              <div
+                key={tech.name}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium text-foreground hover:border-primary/50 transition-colors"
+              >
+                <TechIcon name={tech.name} className="w-4 h-4" size={16} />
+                <span>{tech.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
+  );
+}
+
+export default function HomePage({ params }: PageProps) {
+  return (
+    <Suspense
+      fallback={
+        <main className="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+          <div className="h-48 rounded-xl bg-card border border-border animate-pulse" />
+        </main>
+      }
+    >
+      <HeroSection langPromise={params} />
+    </Suspense>
   );
 }

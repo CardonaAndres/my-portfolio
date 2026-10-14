@@ -19,7 +19,10 @@ export default function RootLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-primary/20"
+      >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
