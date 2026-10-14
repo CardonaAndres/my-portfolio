@@ -11,11 +11,19 @@ export const enDictionary: Dictionary = {
   hero: {
     badge: "Available for new opportunities",
     greeting: "Hi, I'm",
-    role: "Software Developer",
+    name: "Andrés Cardona",
+    role: "Full Stack Software Engineer",
+    tagline: "Specialized in Backend, Scalable Architecture & Cloud/DevOps",
     description:
-      "Specialized in building modern web applications, scalable architectures, and high-impact digital experiences.",
-    ctaProjects: "View Projects",
+      "3+ years of experience in the TypeScript/JavaScript ecosystem (Node.js, NestJS, React, Next.js), databases, and DevOps practices. Passionate about building resilient distributed systems, zero-downtime CI/CD pipelines, and high-performance AI integrations.",
+    location: "Itagüí, Colombia · Remote / Hybrid",
+    ctaProjects: "Explore Projects",
     ctaContact: "Get in Touch",
+    ctaWhatsapp: "Direct WhatsApp",
+    statExperience: "3+ Years Exp.",
+    statProjects: "Production Systems",
+    statAvailability: "Immediate Availability",
+    techStackLabel: "Core Technology Ecosystem",
   },
   projects: {
     title: "Featured Projects",

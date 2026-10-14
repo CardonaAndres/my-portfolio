@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
 import { DEFAULT_LOCALE, LOCALES } from "@/core/constants/i18n.constant";
 import { getDictionary } from "@/core/i18n";
-import { Navbar, Footer } from "@/core/components/navigation";
+import { Navbar, Footer, SocialSidebar } from "@/core/components/navigation";
 
 interface LangLayoutProps {
   children: ReactNode;
@@ -45,9 +45,12 @@ async function LocalizedFooter({
 export default function LangLayout({ children, params }: LangLayoutProps) {
   return (
     <>
+      <SocialSidebar />
       <Suspense
         fallback={
-          <header className="sticky top-0 z-50 w-full h-16 border-b border-border bg-background/80 backdrop-blur-md" />
+          <header className="sticky top-3 sm:top-5 z-50 w-full px-4 sm:px-6">
+            <div className="mx-auto max-w-5xl h-14 rounded-full border border-border/80 bg-background/80 backdrop-blur-md" />
+          </header>
         }
       >
         <LocalizedNavbar paramsPromise={params} />

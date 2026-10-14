@@ -11,10 +11,18 @@ export interface NavDictionary {
 export interface HeroDictionary {
   badge: string;
   greeting: string;
+  name: string;
   role: string;
+  tagline: string;
   description: string;
+  location: string;
   ctaProjects: string;
   ctaContact: string;
+  ctaWhatsapp: string;
+  statExperience: string;
+  statProjects: string;
+  statAvailability: string;
+  techStackLabel: string;
 }
 
 export interface ProjectsDictionary {

@@ -30,7 +30,7 @@ export const LanguageSwitcher = ({
 
   return (
     <div
-      className={`inline-flex items-center rounded-lg border border-border bg-card p-0.5 text-xs font-medium text-muted-foreground ${className}`}
+      className={`inline-flex items-center rounded-full border border-border/80 bg-muted/40 p-0.5 text-xs font-medium text-muted-foreground ${className}`}
       role="group"
       aria-label="Selector de idioma"
     >
@@ -40,10 +40,10 @@ export const LanguageSwitcher = ({
           <Link
             key={locale}
             href={getTargetHref(locale)}
-            className={`px-2 py-1 rounded-md transition-colors ${
+            className={`px-2.5 py-1 rounded-full transition-all font-mono text-[11px] ${
               isActive
-                ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                : "hover:text-foreground"
+                ? "bg-foreground text-background font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
             }`}
             aria-current={isActive ? "page" : undefined}
           >
