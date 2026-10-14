@@ -7,6 +7,11 @@ import { ThemeProvider } from "@/core/components/theme/ThemeProvider";
 export const metadata: Metadata = {
   title: "DevPortfolio | Software Developer",
   description: "Portafolio profesional de desarrollo de software",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
