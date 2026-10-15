@@ -41,7 +41,10 @@ async function HomeContent({
 
   return (
     <main className="flex flex-col">
+      {/* 1. Hero & Stack Tecnológico */}
       <HeroSection dict={dict.hero} locale={locale} />
+
+      {/* 2. Experiencia Profesional (Incluye Pilares de Ingeniería + Acordeón de Empresas) */}
       <ExperienceSection locale={locale} />
     </main>
   );

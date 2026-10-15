@@ -1,6 +1,5 @@
 import type { HeroProps } from "@/modules/hero/interfaces/hero.interface";
 import { HeroHeader } from "@/modules/hero/components/HeroHeader";
-import { HeroPillars } from "@/modules/hero/components/HeroPillars";
 import { HeroTechStack } from "@/modules/hero/components/HeroTechStack";
 
 export const HeroSection = ({ dict, locale }: HeroProps) => {
@@ -10,10 +9,7 @@ export const HeroSection = ({ dict, locale }: HeroProps) => {
         {/* 1. Encabezado, Biografía y Acciones */}
         <HeroHeader dict={dict} locale={locale} />
 
-        {/* 2. Pilares de Ingeniería */}
-        <HeroPillars locale={locale} />
-
-        {/* 3. Matriz de Tecnologías */}
+        {/* 2. Matriz de Tecnologías (Stack Tecnológico) */}
         <HeroTechStack />
       </div>
     </section>

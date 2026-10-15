@@ -10,7 +10,7 @@ export const ENGINEERING_PILLARS: readonly EngineeringPillar[] = [
     category: "DEVOPS & CLOUD",
     metric: "Zero Downtime",
     highlight: "Infraestructura & CI/CD",
-    chips: ["Docker & Linux", "CI/CD Pipelines", "Blue-Green Deploy", "Nginx / Traefik"],
+    chips: ["Docker", "CI/CD Pipelines", "Blue-Green", "Nginx & Linux"],
   },
   {
     id: "backend",
@@ -18,15 +18,15 @@ export const ENGINEERING_PILLARS: readonly EngineeringPillar[] = [
     category: "BACKEND & DATA",
     metric: "Scalable Systems",
     highlight: "Arquitectura & Colas",
-    chips: ["Microservicios", "NestJS & Node", "PostgreSQL / SQL", "Redis & Colas"],
+    chips: ["Microservicios", "NestJS & Node", "PostgreSQL", "Redis & Colas"],
   },
   {
     id: "ai-first",
     number: "03",
     category: "AI-FIRST",
     metric: "AI Integration",
-    highlight: "LLMs, Agentes & RAG",
-    chips: ["LLMs & Prompting", "Agentes Autónomos", "APIs de IA / Meta", "Workflows & RAG"],
+    highlight: "Agentes, MCPs & LLMs",
+    chips: ["LLMs & Prompts", "Agentes IA", "MCPs & Tools", "Workflows RAG"],
   },
   {
     id: "impact",
@@ -34,7 +34,7 @@ export const ENGINEERING_PILLARS: readonly EngineeringPillar[] = [
     category: "ENTREGA & NEGOCIO",
     metric: "End-to-End Product",
     highlight: "Diseño, Ops & B2 Level",
-    chips: ["Ciclo End-to-End", "Patrones de Diseño", "Optimización Ops", "Inglés B2 Técnico"],
+    chips: ["Entrega E2E", "Clean Code", "Optimización", "Inglés B2"],
   },
 ] as const;
 

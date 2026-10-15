@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
+import { HeroPillars } from "@/modules/hero/components/HeroPillars";
 import { EXPERIENCES_DATA } from "@/modules/experience/constants/experience.constant";
 import { ExperienceCard } from "@/modules/experience/components/ExperienceCard";
 import { ChevronsUpDown } from "lucide-react";
@@ -36,54 +37,60 @@ export const ExperienceSection = ({ locale }: ExperienceSectionProps) => {
       aria-label="Experiencia profesional y sistemas desarrollados"
       className="scroll-mt-24 py-16 sm:py-20 border-b border-border/80"
     >
-      <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col gap-10 sm:gap-14">
-        {/* Encabezado Editorial de Sección */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-border/60 pb-8">
-          <div className="flex flex-col gap-3 max-w-2xl">
-            <div className="flex items-center gap-2">
+      <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col gap-10 sm:gap-12">
+        {/* Encabezado Editorial Compacto & 100% Responsive */}
+        <div className="flex flex-col gap-3 border-b border-border/70 pb-5">
+          {/* Fila Superior: Metadata a la izquierda + Botón Expandir Todo anclado a la derecha */}
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 sm:gap-2.5">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                {"//"} 02. TRAYECTORIA &amp; SISTEMAS
+                {"//"} 02. EXPERIENCIA
               </span>
-              <span className="text-border">|</span>
-              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                {locale === "es" ? "Producción Real" : "Real Production"}
+              <span className="text-border hidden sm:inline-block">|</span>
+              <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                +3 Años
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-              {locale === "es"
-                ? "Experiencia Profesional"
-                : "Professional Experience"}
-            </h2>
-
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              {locale === "es"
-                ? "Trayectoria liderando y construyendo soluciones de software de alta exigencia: desde arquitecturas de microservicios y despliegues sin tiempo de inactividad hasta integraciones de IA y facturación fiscal."
-                : "Proven track record designing and shipping high-stakes software solutions: from microservices and zero-downtime deployments to AI integrations and fiscal compliance."}
-            </p>
+            {/* Botón de acción para expandir/colapsar todos */}
+            <button
+              type="button"
+              onClick={toggleAll}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1 rounded-lg border border-border/80 bg-card hover:bg-muted text-[11px] sm:text-xs font-mono font-medium text-muted-foreground hover:text-foreground transition-all cursor-pointer shadow-2xs shrink-0"
+            >
+              <ChevronsUpDown className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+              <span>
+                {areAllOpen
+                  ? locale === "es"
+                    ? "Colapsar Todo"
+                    : "Collapse All"
+                  : locale === "es"
+                  ? "Expandir Todo"
+                  : "Expand All"}
+              </span>
+            </button>
           </div>
 
-          {/* Botón de acción para expandir/colapsar todos */}
-          <button
-            type="button"
-            onClick={toggleAll}
-            className="self-start sm:self-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-border/80 bg-card hover:bg-muted text-xs font-mono font-medium text-muted-foreground hover:text-foreground transition-all cursor-pointer shadow-2xs"
-          >
-            <ChevronsUpDown className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-            <span>
-              {areAllOpen
-                ? locale === "es"
-                  ? "Colapsar Todo"
-                  : "Collapse All"
-                : locale === "es"
-                ? "Expandir Todo"
-                : "Expand All"}
-            </span>
-          </button>
+          {/* Título Principal */}
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+            {locale === "es"
+              ? "Trayectoria Profesional"
+              : "Professional Experience"}
+          </h2>
+
+          {/* Subtítulo condensado y contundente */}
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-3xl">
+            {locale === "es"
+              ? "Diseño y entrega de soluciones de alta exigencia: microservicios, despliegues zero-downtime, integraciones de IA y sistemas transaccionales en producción."
+              : "Designing and shipping high-stakes solutions: microservices, zero-downtime deployments, real-world AI integrations, and transactional systems."}
+          </p>
         </div>
 
-        {/* Timeline de Experiencias en Modo Acordeón */}
-        <div className="flex flex-col space-y-6 sm:space-y-8">
+        {/* 1. Pilares de Ingeniería & Métricas Core (Integrados armónicamente en la sección) */}
+        <HeroPillars locale={locale} showHeader={false} />
+
+        {/* 2. Timeline de Experiencias en Empresas */}
+        <div className="flex flex-col space-y-6 sm:space-y-8 pt-2">
           {EXPERIENCES_DATA.map((experience) => (
             <ExperienceCard
               key={experience.id}
