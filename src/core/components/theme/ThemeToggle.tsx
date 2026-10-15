@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "@/core/hooks/useTheme";
+
+const emptySubscribe = () => () => {};
 
 interface ThemeToggleProps {
   className?: string;
@@ -9,11 +11,11 @@ interface ThemeToggleProps {
 
 export const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
   const { resolvedTheme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (

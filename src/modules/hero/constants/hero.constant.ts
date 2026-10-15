@@ -5,25 +5,36 @@ import type {
 
 export const ENGINEERING_PILLARS: readonly EngineeringPillar[] = [
   {
-    id: "experience",
+    id: "devops",
     number: "01",
-    metric: "+3 Años",
-    description:
-      "Desarrollo de punta a punta con Node.js, NestJS, React, TypeScript y arquitecturas limpias.",
-  },
-  {
-    id: "infrastructure",
-    number: "02",
+    category: "DEVOPS & CLOUD",
     metric: "Zero Downtime",
-    description:
-      "Estrategia Blue-Green con Docker, CI/CD en GitHub Actions y proxies reversos Nginx/Traefik.",
+    highlight: "Infraestructura & CI/CD",
+    chips: ["Docker & Linux", "CI/CD Pipelines", "Blue-Green Deploy", "Nginx / Traefik"],
   },
   {
-    id: "scalability",
+    id: "backend",
+    number: "02",
+    category: "BACKEND & DATA",
+    metric: "Scalable Systems",
+    highlight: "Arquitectura & Colas",
+    chips: ["Microservicios", "NestJS & Node", "PostgreSQL / SQL", "Redis & Colas"],
+  },
+  {
+    id: "ai-first",
     number: "03",
-    metric: "Data & Cache",
-    description:
-      "Modelado relacional con PostgreSQL y MySQL, colas de procesamiento asíncrono y caché en Redis.",
+    category: "AI-FIRST",
+    metric: "AI Integration",
+    highlight: "LLMs, Agentes & RAG",
+    chips: ["LLMs & Prompting", "Agentes Autónomos", "APIs de IA / Meta", "Workflows & RAG"],
+  },
+  {
+    id: "impact",
+    number: "04",
+    category: "ENTREGA & NEGOCIO",
+    metric: "End-to-End Product",
+    highlight: "Diseño, Ops & B2 Level",
+    chips: ["Ciclo End-to-End", "Patrones de Diseño", "Optimización Ops", "Inglés B2 Técnico"],
   },
 ] as const;
 

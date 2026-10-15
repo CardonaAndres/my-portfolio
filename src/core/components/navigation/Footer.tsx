@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/core/components/icons";
 import type { FooterDictionary } from "@/core/interfaces/i18n.interface";
@@ -11,11 +10,7 @@ interface FooterProps {
 }
 
 export const Footer = ({ dict }: FooterProps) => {
-  const [currentYear, setCurrentYear] = useState(2026);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full border-t border-border bg-card/40 py-8 text-center text-sm text-muted-foreground">

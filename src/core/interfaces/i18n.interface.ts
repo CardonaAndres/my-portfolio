@@ -26,6 +26,8 @@ export interface HeroDictionary {
   focusFrontendText: string;
   focusBackendLabel: string;
   focusBackendText: string;
+  focusAiLabel?: string;
+  focusAiText?: string;
 }
 
 export interface ProjectsDictionary {

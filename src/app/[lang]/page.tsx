@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, LOCALES } from "@/core/constants/i18n.constant";
 import { getDictionary } from "@/core/i18n";
 import { SITE_CONFIG } from "@/core/config/site.config";
 import { HeroSection } from "@/modules/hero";
+import { ExperienceSection } from "@/modules/experience";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -38,7 +39,12 @@ async function HomeContent({
     : DEFAULT_LOCALE;
   const dict = await getDictionary(locale);
 
-  return <HeroSection dict={dict.hero} locale={locale} />;
+  return (
+    <main className="flex flex-col">
+      <HeroSection dict={dict.hero} locale={locale} />
+      <ExperienceSection locale={locale} />
+    </main>
+  );
 }
 
 export default function HomePage({ params }: PageProps) {

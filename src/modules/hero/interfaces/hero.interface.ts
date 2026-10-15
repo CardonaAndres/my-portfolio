@@ -8,8 +8,10 @@ export interface HeroProps {
 export interface EngineeringPillar {
   id: string;
   number: string;
+  category: string;
   metric: string;
-  description: string;
+  highlight?: string;
+  chips: readonly string[];
 }
 
 export interface TechItem {

@@ -16,11 +16,13 @@ interface NavbarProps {
 export const Navbar = ({ currentLocale, dict }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Cerrar menú móvil cuando cambia la ruta
-  useEffect(() => {
+  // Cerrar menú móvil cuando cambia la ruta durante el render
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileOpen(false);
-  }, [pathname]);
+  }
 
   // Cerrar con la tecla Escape
   useEffect(() => {

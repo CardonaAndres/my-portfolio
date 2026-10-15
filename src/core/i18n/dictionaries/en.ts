@@ -12,10 +12,10 @@ export const enDictionary: Dictionary = {
     badge: "Available for new opportunities",
     greeting: "Hi, I'm",
     name: "Andrés Cardona",
-    role: "Full Stack Software Engineer",
-    tagline: "Specialized in Backend, Scalable Architecture & Cloud/DevOps",
+    role: "Full Stack Software Engineer · AI-First",
+    tagline: "Specialized in Backend, Cloud/DevOps & Artificial Intelligence Integration",
     description:
-      "3+ years of experience delivering across the entire software development lifecycle. While I have proven competence in the frontend (React, Next.js) to ship complete end-to-end products, my true core expertise and deepest impact lie in backend engineering: scalable distributed systems, resilient data modeling, and zero-downtime Cloud/DevOps pipelines.",
+      "3+ years of experience delivering end-to-end solutions with an AI-First mindset. Combining solid Full Stack proficiency (React, Next.js, Node.js) with deep expertise in scalable backend architectures, zero-downtime Cloud/DevOps operations, and real-world Artificial Intelligence integration (LLMs, autonomous agents, and commercial bots) to optimize business workflows.",
     location: "Itagüí, Colombia",
     ctaProjects: "Explore Projects",
     ctaContact: "Get in Touch",
@@ -27,6 +27,8 @@ export const enDictionary: Dictionary = {
     focusFrontendText: "End-to-end Full Stack capability",
     focusBackendLabel: "Core Specialty",
     focusBackendText: "Backend, Architecture & Cloud/DevOps",
+    focusAiLabel: "AI-First",
+    focusAiText: "LLMs Integration, Agents & Automation",
   },
   projects: {
     title: "Featured Projects",

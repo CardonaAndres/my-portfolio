@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Sparkles } from "lucide-react";
 import type { HeroProps } from "@/modules/hero/interfaces/hero.interface";
 
 export const HeroHeader = ({ dict, locale }: HeroProps) => {
@@ -22,8 +22,9 @@ export const HeroHeader = ({ dict, locale }: HeroProps) => {
             <span>{dict.location}</span>
           </span>
           <span className="hidden sm:inline-block text-border">|</span>
-          <span className="hidden sm:inline-block uppercase tracking-wider text-blue-600/90 dark:text-blue-400/90 font-semibold">
-            Full Stack & Cloud
+          <span className="hidden sm:inline-flex items-center gap-1.5 uppercase tracking-wider text-blue-600/90 dark:text-blue-400/90 font-semibold">
+            <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+            Full Stack · Cloud · AI-First
           </span>
         </div>
       </div>
@@ -37,8 +38,9 @@ export const HeroHeader = ({ dict, locale }: HeroProps) => {
           <p className="text-xl sm:text-2xl font-medium text-muted-foreground tracking-tight">
             {dict.role}
           </p>
-          <span className="hidden sm:inline-block text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-            Backend &amp; Cloud Architecture
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+            <Sparkles className="w-3 h-3 text-blue-500" />
+            AI-First · Backend &amp; Cloud
           </span>
         </div>
       </div>

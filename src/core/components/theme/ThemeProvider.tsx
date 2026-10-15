@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useEffect, useState, useTransition } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  useSyncExternalStore,
+  useTransition,
+} from "react";
 import type { ReactNode } from "react";
 import type {
   ResolvedTheme,
@@ -14,6 +20,29 @@ import {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const subscribeTheme = (callback: () => void) => {
+  window.addEventListener("storage", callback);
+  window.addEventListener("theme-change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("theme-change", callback);
+  };
+};
+
+const getStoredTheme = (): Theme => {
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+    if (stored && ["light", "dark", "system"].includes(stored)) {
+      return stored;
+    }
+  } catch {
+    // Ignorar si localStorage no está disponible
+  }
+  return DEFAULT_THEME;
+};
+
+const getServerTheme = (): Theme => DEFAULT_THEME;
+
 interface ThemeProviderProps {
   children: ReactNode;
   defaultTheme?: Theme;
@@ -21,25 +50,16 @@ interface ThemeProviderProps {
 
 export const ThemeProvider = ({
   children,
-  defaultTheme = DEFAULT_THEME,
 }: ThemeProviderProps) => {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getStoredTheme,
+    getServerTheme
+  );
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
   const [, startTransition] = useTransition();
 
-  // 1. Cargar tema guardado en cliente al montar
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-      if (stored && ["light", "dark", "system"].includes(stored)) {
-        setThemeState(stored);
-      }
-    } catch {
-      // Ignorar si localStorage no está disponible
-    }
-  }, []);
-
-  // 2. Resolver y aplicar clases en el <html>
+  // 1. Resolver y aplicar clases en el <html>
   useEffect(() => {
     const root = document.documentElement;
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -74,9 +94,9 @@ export const ThemeProvider = ({
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+      window.dispatchEvent(new Event("theme-change"));
     } catch {
       // Ignorar
     }
