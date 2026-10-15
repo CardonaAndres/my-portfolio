@@ -15,7 +15,7 @@ export const enDictionary: Dictionary = {
     role: "Full Stack Software Engineer · AI-First",
     tagline: "Specialized in Backend, Cloud/DevOps & Artificial Intelligence Integration",
     description:
-      "3+ years of experience delivering end-to-end solutions with an AI-First mindset. Combining solid Full Stack proficiency (React, Next.js, Node.js) with deep expertise in scalable backend architectures, zero-downtime Cloud/DevOps operations, and real-world Artificial Intelligence integration (LLMs, autonomous agents, and commercial bots) to optimize business workflows.",
+      "3+ years shipping end-to-end software with an AI-First mindset: proven Full Stack fluency (React, Next.js), core scalable backend architecture, zero-downtime Cloud/DevOps, and practical LLM & autonomous agent integration.",
     location: "Itagüí, Colombia",
     ctaProjects: "Explore Projects",
     ctaContact: "Get in Touch",
@@ -28,7 +28,7 @@ export const enDictionary: Dictionary = {
     focusBackendLabel: "Core Specialty",
     focusBackendText: "Backend, Architecture & Cloud/DevOps",
     focusAiLabel: "AI-First",
-    focusAiText: "LLMs Integration, Agents & Automation",
+    focusAiText: "LLMs, Agents & Automation",
   },
   projects: {
     title: "Featured Projects",
