@@ -55,16 +55,16 @@ export const Navbar = ({ currentLocale, dict }: NavbarProps) => {
             onClick={() => setMobileOpen(false)}
           >
             {/* Monograma AC Sólido con indicador de disponibilidad */}
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-foreground text-background font-mono text-xs font-bold shadow-xs group-hover:scale-105 transition-transform">
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600 text-white font-mono text-xs font-bold shadow-xs shadow-blue-600/30 group-hover:scale-105 transition-transform">
               AC
               <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-background" />
             </div>
 
             <div className="flex items-center gap-1.5">
-              <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-muted-foreground transition-colors">
+              <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 Andrés
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground border border-border/80">
+              <span className="font-mono text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
                 dev
               </span>
             </div>
@@ -94,7 +94,7 @@ export const Navbar = ({ currentLocale, dict }: NavbarProps) => {
             {/* CTA Contacto Rápido Sólido (Desktop Grande) */}
             <Link
               href={`/${currentLocale}#contact`}
-              className="hidden lg:inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-foreground text-background text-xs font-semibold hover:opacity-90 active:scale-95 transition-all shadow-xs"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-xs shadow-blue-600/25 hover:shadow-blue-500/35 active:scale-95 transition-all duration-150"
             >
               <span>{dict.contact}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export const Navbar = ({ currentLocale, dict }: NavbarProps) => {
               <Link
                 href={`/${currentLocale}#contact`}
                 onClick={() => setMobileOpen(false)}
-                className="w-full py-2.5 rounded-xl bg-foreground text-background text-sm font-semibold flex items-center justify-center gap-1.5 hover:opacity-90 transition-opacity"
+                className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/25 transition-all"
               >
                 <span>{dict.contact}</span>
                 <ArrowUpRight className="w-4 h-4" />

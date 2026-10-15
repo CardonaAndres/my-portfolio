@@ -18,11 +18,14 @@ export interface HeroDictionary {
   location: string;
   ctaProjects: string;
   ctaContact: string;
-  ctaWhatsapp: string;
   statExperience: string;
   statProjects: string;
   statAvailability: string;
   techStackLabel: string;
+  focusFrontendLabel: string;
+  focusFrontendText: string;
+  focusBackendLabel: string;
+  focusBackendText: string;
 }
 
 export interface ProjectsDictionary {

@@ -8,6 +8,7 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -15,27 +16,29 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
+  --background: #f8fafc;
+  --foreground: #090e17;
   --card: #ffffff;
-  --card-foreground: #09090b;
-  --primary: #0284c7;
+  --card-foreground: #090e17;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
   --primary-foreground: #ffffff;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #f4f4f5;
-  --card: #121215;
-  --card-foreground: #f4f4f5;
-  --primary: #38bdf8;
-  --primary-foreground: #09090b;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --border: #27272a;
+  --background: #080c14;
+  --foreground: #f1f5f9;
+  --card: #0d1424;
+  --card-foreground: #f1f5f9;
+  --primary: #2563eb;
+  --primary-hover: #3b82f6;
+  --primary-foreground: #ffffff;
+  --muted: #111a2e;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
 }
 
 body {

@@ -12,6 +12,5 @@ export const SITE_CONFIG = {
     github: "https://github.com/CardonaAndres",
     linkedin: "https://www.linkedin.com/in/andres-cardona-dev",
     email: "mailto:11cardona31@gmail.com",
-    whatsapp: "https://wa.me/573012524648",
   },
 } as const;
