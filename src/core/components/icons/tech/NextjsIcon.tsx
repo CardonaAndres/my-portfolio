@@ -9,7 +9,7 @@ export const NextjsIcon = ({ className = "w-5 h-5", size = 24 }: IconProps) => (
     className={className}
   >
     <g transform="scale(.35556)">
-        <circle cx="90" cy="90" r="90" fill="#000" />
+        <circle cx="90" cy="90" r="86" fill="#000" className="stroke-transparent dark:stroke-white/25" strokeWidth="6" />
         <path fill="url(#nextjs-b)" d="M149.508 157.52 69.142 54H54v71.97h12.114V69.384l73.885 95.461a90 90 0 0 0 9.509-7.325" />
         <path fill="url(#nextjs-c)" d="M115 54h12v72h-12z" />
     </g>

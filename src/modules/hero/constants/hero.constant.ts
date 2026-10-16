@@ -45,8 +45,8 @@ export const TECH_CATEGORIES: readonly TechCategory[] = [
     title: "FRONTEND",
     subtitle: "UI & Client",
     items: [
-      { name: "typescript", label: "TS" },
-      { name: "javascript", label: "JS" },
+      { name: "typescript", label: "TypeScript" },
+      { name: "javascript", label: "JavaScript" },
       { name: "react", label: "React" },
       { name: "nextjs", label: "Next.js" },
       { name: "tailwind", label: "Tailwind" },
@@ -61,7 +61,7 @@ export const TECH_CATEGORIES: readonly TechCategory[] = [
     title: "BACKEND",
     subtitle: "API & Services",
     items: [
-      { name: "nodejs", label: "Node" },
+      { name: "nodejs", label: "Node.js" },
       { name: "express", label: "Express" },
       { name: "nestjs", label: "NestJS" },
       { name: "python", label: "Python" },
@@ -76,7 +76,7 @@ export const TECH_CATEGORIES: readonly TechCategory[] = [
     title: "DATOS",
     subtitle: "SQL & Cache",
     items: [
-      { name: "postgresql", label: "Postgres" },
+      { name: "postgresql", label: "PostgreSQL" },
       { name: "mysql", label: "MySQL" },
       { name: "redis", label: "Redis" },
       { name: "typeorm", label: "TypeORM" },
@@ -93,7 +93,7 @@ export const TECH_CATEGORIES: readonly TechCategory[] = [
     subtitle: "CI/CD & Servers",
     items: [
       { name: "docker", label: "Docker" },
-      { name: "githubactions", label: "CI/CD" },
+      { name: "githubactions", label: "GitHub Actions" },
       { name: "nginx", label: "Nginx" },
       { name: "traefik", label: "Traefik" },
       { name: "linux", label: "Linux" },
