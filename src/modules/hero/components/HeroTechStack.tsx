@@ -36,8 +36,9 @@ export const HeroTechStack = () => {
 
   return (
     <section
+      id="skills"
       aria-label="Ecosistema tecnológico"
-      className="flex flex-col gap-6"
+      className="scroll-mt-20 sm:scroll-mt-24 flex flex-col gap-6"
     >
       {/* Encabezado del Stack Tecnológico */}
       <div className="relative flex items-center justify-between gap-3 border-b border-border/70 pb-3 sm:pb-3.5">
