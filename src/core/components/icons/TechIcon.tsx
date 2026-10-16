@@ -29,6 +29,7 @@ import { PostgresqlIcon } from "@/core/components/icons/tech/PostgresqlIcon";
 import { MongodbIcon } from "@/core/components/icons/tech/MongodbIcon";
 import { RedisIcon } from "@/core/components/icons/tech/RedisIcon";
 import { PrismaIcon } from "@/core/components/icons/tech/PrismaIcon";
+import { SqlServerIcon } from "@/core/components/icons/tech/SqlServerIcon";
 
 // DevOps & Cloud
 import { DockerIcon } from "@/core/components/icons/tech/DockerIcon";
@@ -81,6 +82,9 @@ const TECH_ICON_MAP: Record<string, ComponentType<IconProps>> = {
   mongodb: MongodbIcon,
   redis: RedisIcon,
   prisma: PrismaIcon,
+  sqlserver: SqlServerIcon,
+  mssql: SqlServerIcon,
+  microsoftsqlserver: SqlServerIcon,
 
   // DevOps & Cloud
   docker: DockerIcon,

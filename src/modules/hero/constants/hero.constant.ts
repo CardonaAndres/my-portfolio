@@ -83,6 +83,7 @@ export const TECH_CATEGORIES: readonly TechCategory[] = [
       { name: "prisma", label: "Prisma" },
       { name: "sqlite", label: "SQLite" },
       { name: "mongodb", label: "MongoDB" },
+      { name: "sqlserver", label: "SQL Server" },
     ],
   },
   {

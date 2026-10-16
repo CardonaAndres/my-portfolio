@@ -30,6 +30,7 @@ export type TechIconName =
   | "redis"
   | "prisma"
   | "graphql"
+  | "sqlserver"
   // DevOps & Cloud
   | "docker"
   | "nginx"

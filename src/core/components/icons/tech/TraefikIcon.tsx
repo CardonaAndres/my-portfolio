@@ -9,7 +9,6 @@ export const TraefikIcon = ({ className = "w-5 h-5", size = 24 }: IconProps) => 
     fill="none"
     className={className}
   >
-    <rect width="256" height="256" rx="32" fill="#18181B" />
     <path
       d="M128 48C83.8 48 48 83.8 48 128s35.8 80 80 80 80-35.8 80-80-35.8-80-80-80zm32 108l-32-20-32 20V92l32 20 32-20v64z"
       fill="#24A1C1"

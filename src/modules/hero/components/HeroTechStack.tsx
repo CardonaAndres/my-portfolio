@@ -11,7 +11,7 @@ export const HeroTechStack = () => {
             Stack Tecnológico
           </span>
           <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-            [ 29 Tecnologías ]
+            [ {TECH_CATEGORIES.reduce((acc, cat) => acc + cat.items.length, 0)} Tecnologías ]
           </span>
         </div>
         <span className="text-xs text-muted-foreground hidden sm:inline-block font-mono">

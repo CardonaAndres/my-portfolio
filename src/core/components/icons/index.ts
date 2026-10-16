@@ -27,6 +27,7 @@ export { PostgresqlIcon } from "@/core/components/icons/tech/PostgresqlIcon";
 export { MongodbIcon } from "@/core/components/icons/tech/MongodbIcon";
 export { RedisIcon } from "@/core/components/icons/tech/RedisIcon";
 export { PrismaIcon } from "@/core/components/icons/tech/PrismaIcon";
+export { SqlServerIcon } from "@/core/components/icons/tech/SqlServerIcon";
 
 // DevOps & Cloud
 export { DockerIcon } from "@/core/components/icons/tech/DockerIcon";
