@@ -44,7 +44,7 @@ export const ExperienceSection = ({ locale }: ExperienceSectionProps) => {
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 sm:gap-2.5">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                {"//"} 02. EXPERIENCIA
+                {"//"} 03. EXPERIENCIA
               </span>
               <span className="text-border hidden sm:inline-block">|</span>
               <span className="font-mono text-[11px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">

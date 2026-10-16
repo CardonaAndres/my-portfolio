@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, LOCALES } from "@/core/constants/i18n.constant";
 import { getDictionary } from "@/core/i18n";
 import { SITE_CONFIG } from "@/core/config/site.config";
 import { HeroSection } from "@/modules/hero";
+import { ProjectsSection } from "@/modules/projects";
 import { ExperienceSection } from "@/modules/experience";
 
 interface PageProps {
@@ -37,6 +38,7 @@ async function HomeContent({
   const locale: Locale = LOCALES.includes(lang as Locale)
     ? (lang as Locale)
     : DEFAULT_LOCALE;
+    
   const dict = await getDictionary(locale);
 
   return (
@@ -44,7 +46,10 @@ async function HomeContent({
       {/* 1. Hero & Stack Tecnológico */}
       <HeroSection dict={dict.hero} locale={locale} />
 
-      {/* 2. Experiencia Profesional (Incluye Pilares de Ingeniería + Acordeón de Empresas) */}
+      {/* 2. Proyectos & Casos de Estudio */}
+      <ProjectsSection locale={locale} />
+
+      {/* 3. Experiencia Profesional (Incluye Pilares de Ingeniería + Acordeón de Empresas) */}
       <ExperienceSection locale={locale} />
     </main>
   );
