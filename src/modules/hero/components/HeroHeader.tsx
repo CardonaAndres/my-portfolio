@@ -231,7 +231,7 @@ export const HeroHeader = ({ dict, locale }: HeroProps) => {
             </div>
 
             {/* Badge 2: AI-First (Centro-izquierda, escalón inferior con separación armoniosa) */}
-            <div className="inline-flex absolute -bottom-14 left-4 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 dark:bg-card/90 backdrop-blur-md border border-blue-500/50 font-mono text-xs text-foreground shadow-xl shadow-blue-500/15 hover:border-blue-500/80 transition-all select-none">
+            <div className="inline-flex absolute -bottom-15 left-4 z-20 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 dark:bg-card/90 backdrop-blur-md border border-blue-500/50 font-mono text-xs text-foreground shadow-xl shadow-blue-500/15 hover:border-blue-500/80 transition-all select-none">
               <Sparkles className="w-3.5 h-3.5 text-blue-500 animate-pulse shrink-0" />
               <div className="flex flex-col">
                 <span className="font-bold text-blue-600 dark:text-blue-400 text-[11px] leading-tight whitespace-nowrap">
