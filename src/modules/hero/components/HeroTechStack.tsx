@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Cloud, Database, Layout, Server, Sparkles, Terminal } from "lucide-react";
+import { Cloud, Database, Layers, Layout, Server, Sparkles, Terminal } from "lucide-react";
 import { TechIcon } from "@/core/components/icons";
 import { TECH_CATEGORIES } from "@/modules/hero/constants/hero.constant";
 
@@ -40,24 +40,41 @@ export const HeroTechStack = () => {
       className="flex flex-col gap-6"
     >
       {/* Encabezado del Stack Tecnológico */}
-      <div className="flex items-center justify-between border-b border-border/80 pb-3">
+      <div className="relative flex items-center justify-between gap-3 border-b border-border/70 pb-3 sm:pb-3.5">
+        {/* Glow sutil en la línea inferior */}
+        <div className="absolute -bottom-px left-0 w-28 sm:w-36 h-px bg-gradient-to-r from-blue-500 via-blue-400 to-transparent" />
+
+        {/* Lado Izquierdo: Icono + Título + Contador de Tecnologías */}
         <div className="flex items-center gap-2.5">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-foreground">
-            Stack Tecnológico
+          <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0 shadow-2xs">
+            <Layers className="w-3.5 h-3.5" />
+          </div>
+          <div className="flex items-center gap-2">
+            <h2 className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground">
+              Stack Tecnológico
+            </h2>
+            <span className="font-mono text-[10.5px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+              [ {totalTechs} Tecnologías ]
+            </span>
+          </div>
+        </div>
+
+        {/* Lado Derecho: Badge de Ecosistema Activo en Producción */}
+        <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card/60 dark:bg-[#0c121e]/80 border border-border/80 font-mono text-[11px] shadow-2xs select-none">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <span className="font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-            [ {totalTechs} Tecnologías ]
+          <span className="text-muted-foreground">
+            Ecosistema de Producción Comprobado
           </span>
         </div>
-        <span className="text-xs text-muted-foreground hidden sm:inline-block font-mono">
-          Ecosistema de producción comprobado
-        </span>
       </div>
 
       {/* Disposición Split: Ilustración 3D a la izquierda (con micro-badges alrededor) y Stack protagonista a la derecha */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
         {/* COLUMNA IZQUIERDA (lg:col-span-5 xl:col-span-4): Avatar 3D integrado al fondo con complementos arriba y badges sin solapamiento abajo */}
-        <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-center lg:items-start justify-center relative py-6 sm:py-8 lg:py-10">
+        <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-center lg:items-start justify-center relative pt-6 sm:pt-8 lg:py-10 pb-24 sm:pb-28">
           {/* Aura de iluminación ambiental circular */}
           <div
             aria-hidden="true"
@@ -67,7 +84,7 @@ export const HeroTechStack = () => {
           {/* Micro-badge de cabecera arriba del avatar */}
           <div className="flex items-center gap-2 mb-5.5 select-none">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 font-mono text-[11px] font-semibold">
-              <Sparkles className="w-3 h-3 text-blue-500" />
+              <Sparkles className="w-3 h-3 text-blue-500 shrink-0" />
               <span>Full Stack &amp; Cloud</span>
             </span>
           </div>
@@ -113,7 +130,7 @@ export const HeroTechStack = () => {
             </div>
 
             {/* Badge 2: Nivel Inferior Escalonado (Derecha, sin solaparse con Badge 1) */}
-            <div className="inline-flex absolute -bottom-9 right-[-4px] sm:-right-4 z-20 items-center gap-2 px-5 py-1.5 rounded-xl bg-card/95 dark:bg-card/90 backdrop-blur-md border border-blue-500/50 font-mono text-xs text-foreground shadow-xl shadow-blue-500/15 hover:border-blue-500/80 select-none">
+            <div className="inline-flex absolute -bottom-9 right-[-2px] sm:-right-4 z-20 items-center gap-2 px-3.5 sm:px-5 py-1.5 rounded-xl bg-card/95 dark:bg-card/90 backdrop-blur-md border border-blue-500/50 font-mono text-xs text-foreground shadow-xl shadow-blue-500/15 hover:border-blue-500/80 select-none">
               <Sparkles className="w-3.5 h-3.5 text-blue-500 animate-pulse shrink-0" />
               <div className="flex flex-col">
                 <span className="font-bold text-blue-600 dark:text-blue-400 text-[11px] leading-tight whitespace-nowrap">
@@ -128,7 +145,7 @@ export const HeroTechStack = () => {
         </div>
 
         {/* COLUMNA DERECHA (lg:col-span-7 xl:col-span-8): Grid 2x2 de Categorías con Mayor Protagonismo */}
-        <div className="lg:col-span-7 xl:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="lg:col-span-7 xl:col-span-8 min-w-0 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {TECH_CATEGORIES.map((category) => {
             const meta = CATEGORY_META[category.id] ?? {
               displayTitle: category.title,
@@ -222,6 +239,43 @@ export const HeroTechStack = () => {
               </div>
             );
           })}
+
+          {/* Badge Compacto de Inteligencia Artificial (ocupa todo el ancho de las dos columnas) */}
+          <div className="col-span-1 sm:col-span-2 min-w-0 rounded-xl border border-blue-500/25 bg-card/60 dark:bg-[#0c121e]/80 backdrop-blur-sm p-3 sm:px-4 sm:py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 shadow-2xs hover:border-blue-500/45 hover:bg-blue-500/[0.03] transition-all duration-200 group">
+            {/* Cabecera Móvil / Lado Izquierdo Desktop: Icono + Título + Micro-pill en Móvil */}
+            <div className="flex items-center justify-between sm:justify-start gap-2.5 min-w-0 w-full sm:w-auto">
+              <div className="flex items-center gap-2">
+                <span className="p-1 rounded-md bg-blue-500/15 text-blue-600 dark:text-blue-400 shrink-0 border border-blue-500/25 group-hover:scale-105 transition-transform duration-200">
+                  <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                </span>
+                <span className="text-xs font-bold font-mono text-foreground tracking-tight whitespace-nowrap">
+                  Enfoque AI-First:
+                </span>
+              </div>
+
+              {/* En móvil: Badge a la derecha de la cabecera */}
+              <span className="inline-flex sm:hidden items-center shrink-0 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/25 select-none">
+                Experiencia IA
+              </span>
+            </div>
+
+            {/* Tags Técnicos en Cápsulas Estilizadas */}
+            <div className="flex flex-wrap items-center gap-1.5 font-mono w-full sm:w-auto">
+              {["LLMs", "Agentes", "RAG", "Embeddings", "Automatización"].map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[10px] sm:text-[10.5px] px-2 py-0.5 rounded-md bg-muted/60 dark:bg-[#151b27] border border-border/70 text-muted-foreground group-hover:text-foreground group-hover:border-blue-500/30 transition-colors select-none"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* En desktop: Badge al extremo derecho */}
+            <span className="hidden sm:inline-flex items-center shrink-0 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/25 select-none">
+              Experiencia IA
+            </span>
+          </div>
         </div>
       </div>
     </section>
