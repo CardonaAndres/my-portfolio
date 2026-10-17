@@ -2,7 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import { GithubIcon, TechIcon } from "@/core/components/icons";
-import { ProjectMedia } from "./ProjectMedia";
+import { ProjectMedia } from "@/modules/projects/components/ProjectMedia";
 import type { Locale } from "@/core/interfaces/i18n.interface";
 import type { ProjectItem } from "@/modules/projects/interfaces/project.interface";
 

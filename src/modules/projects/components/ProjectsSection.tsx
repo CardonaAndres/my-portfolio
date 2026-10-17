@@ -5,10 +5,10 @@ import { FolderGit2, Sparkles } from "lucide-react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
 import type { ProjectCategory } from "@/modules/projects/interfaces/project.interface";
 import { PROJECTS_DATA } from "@/modules/projects/constants/projects.constant";
-import { ProjectsHeader } from "./ProjectsHeader";
-import { ProjectsAvatarCard } from "./ProjectsAvatarCard";
-import { ProjectFeaturedCard } from "./ProjectFeaturedCard";
-import { ProjectCard } from "./ProjectCard";
+import { ProjectsHeader } from "@/modules/projects/components/ProjectsHeader";
+import { ProjectsAvatarCard } from "@/modules/projects/components/ProjectsAvatarCard";
+import { ProjectFeaturedCard } from "@/modules/projects/components/ProjectFeaturedCard";
+import { ProjectCard } from "@/modules/projects/components/ProjectCard";
 
 interface ProjectsSectionProps {
   locale: Locale;
@@ -97,7 +97,7 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
             </div>
 
             {/* Columna Derecha (5 columnas): Avatar 3D con Badges Flotantes y Criterios Técnicos (Sticky) */}
-            <div className="lg:col-span-5 sticky top-24 self-start">
+            <div className="w-full lg:col-span-5 lg:sticky lg:top-24 xl:top-28 self-start">
               <ProjectsAvatarCard locale={locale} />
             </div>
           </div>

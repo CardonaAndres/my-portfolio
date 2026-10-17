@@ -1,8 +1,8 @@
-export { ProjectsSection } from "./components/ProjectsSection";
-export { ProjectsHeader } from "./components/ProjectsHeader";
-export { ProjectFeaturedCard } from "./components/ProjectFeaturedCard";
-export { ProjectsAvatarCard } from "./components/ProjectsAvatarCard";
-export { ProjectCard } from "./components/ProjectCard";
-export { ProjectMedia } from "./components/ProjectMedia";
-export * from "./interfaces/project.interface";
-export * from "./constants/projects.constant";
+export { ProjectsSection } from "@/modules/projects/components/ProjectsSection";
+export { ProjectsHeader } from "@/modules/projects/components/ProjectsHeader";
+export { ProjectFeaturedCard } from "@/modules/projects/components/ProjectFeaturedCard";
+export { ProjectsAvatarCard } from "@/modules/projects/components/ProjectsAvatarCard";
+export { ProjectCard } from "@/modules/projects/components/ProjectCard";
+export { ProjectMedia } from "@/modules/projects/components/ProjectMedia";
+export * from "@/modules/projects/interfaces/project.interface";
+export * from "@/modules/projects/constants/projects.constant";

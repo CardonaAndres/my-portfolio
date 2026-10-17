@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
-import { HeroPillars } from "@/modules/hero/components/HeroPillars";
+import { HeroPillars } from "@/modules/hero";
 import { EXPERIENCES_DATA } from "@/modules/experience/constants/experience.constant";
 import { ExperienceCard } from "@/modules/experience/components/ExperienceCard";
 import { ChevronsUpDown } from "lucide-react";
