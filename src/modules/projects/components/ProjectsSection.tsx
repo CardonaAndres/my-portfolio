@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { FolderGit2, Sparkles } from "lucide-react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
-import type { ProjectCategory } from "@/modules/projects/interfaces/project.interface";
 import { PROJECTS_DATA } from "@/modules/projects/constants/projects.constant";
 import { ProjectsHeader } from "@/modules/projects/components/ProjectsHeader";
 import { ProjectsAvatarCard } from "@/modules/projects/components/ProjectsAvatarCard";
@@ -15,44 +14,15 @@ interface ProjectsSectionProps {
 }
 
 export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("all");
-
-  // Conteo reactivo por categoría
-  const categoryCounts = useMemo(() => {
-    const counts: Record<ProjectCategory, number> = {
-      all: PROJECTS_DATA.length,
-      fullstack: 0,
-      ai: 0,
-      backend: 0,
-      cloud: 0,
-    };
-
-    PROJECTS_DATA.forEach((project) => {
-      if (counts[project.category] !== undefined) {
-        counts[project.category]++;
-      }
-    });
-
-    return counts;
-  }, []);
-
-  // Proyectos filtrados por categoría activa
-  const filteredProjects = useMemo(() => {
-    if (selectedCategory === "all") {
-      return PROJECTS_DATA;
-    }
-    return PROJECTS_DATA.filter((p) => p.category === selectedCategory);
-  }, [selectedCategory]);
-
   // Proyectos destacados (sección superior izquierda)
   const featuredProjects = useMemo(() => {
-    return filteredProjects.filter((p) => p.isFeatured);
-  }, [filteredProjects]);
+    return PROJECTS_DATA.filter((p) => p.isFeatured);
+  }, []);
 
-  // Proyectos complementarios (segunda sección en fila)
+  // Proyectos complementarios (segunda sección en cuadrícula)
   const gridProjects = useMemo(() => {
-    return filteredProjects.filter((p) => !p.isFeatured);
-  }, [filteredProjects]);
+    return PROJECTS_DATA.filter((p) => !p.isFeatured);
+  }, []);
 
   return (
     <section
@@ -61,13 +31,8 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
       className="scroll-mt-20 sm:scroll-mt-24 py-16 sm:py-20 border-b border-border/80"
     >
       <div className="container mx-auto max-w-5xl lg:max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col gap-10 sm:gap-14">
-        {/* 1. Cabecera Editorial con Filtros */}
-        <ProjectsHeader
-          locale={locale}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          categoryCounts={categoryCounts}
-        />
+        {/* 1. Cabecera Editorial Limpia */}
+        <ProjectsHeader locale={locale} totalProjects={PROJECTS_DATA.length} />
 
         {/* 2. Sección Principal: A la izquierda TODOS los Proyectos Destacados, a la derecha el Avatar 3D */}
         {featuredProjects.length > 0 && (
@@ -103,9 +68,9 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
           </div>
         )}
 
-        {/* 3. Segunda Sección: Proyectos no tan destacados (Varias en fila, exactamente como la segunda imagen) */}
+        {/* 3. Segunda Sección: Proyectos no tan destacados (Sin línea superior) */}
         {gridProjects.length > 0 && (
-          <div className="space-y-6 pt-4 border-t border-border/60">
+          <div className="space-y-6 pt-2">
             <div className="flex items-center justify-between border-b border-border/50 pb-3">
               <div className="flex items-center gap-2">
                 <FolderGit2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
@@ -125,25 +90,6 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
                 <ProjectCard key={project.id} project={project} locale={locale} />
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Estado Vacío (si una categoría no tiene proyectos) */}
-        {filteredProjects.length === 0 && (
-          <div className="rounded-2xl border border-dashed border-border/80 p-12 text-center flex flex-col items-center justify-center gap-3">
-            <FolderGit2 className="w-8 h-8 text-muted-foreground/60" />
-            <h3 className="font-mono text-sm font-semibold text-foreground">
-              {locale === "es"
-                ? "No se encontraron proyectos en esta categoría"
-                : "No projects found in this category"}
-            </h3>
-            <button
-              type="button"
-              onClick={() => setSelectedCategory("all")}
-              className="font-mono text-xs text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
-            >
-              {locale === "es" ? "Ver todos los proyectos" : "View all projects"}
-            </button>
           </div>
         )}
       </div>
