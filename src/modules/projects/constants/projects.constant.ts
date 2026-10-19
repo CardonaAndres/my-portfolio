@@ -229,63 +229,94 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
-    id: "bulk-financial-settlement-engine",
+    id: "atmopel-data-sync",
     category: "backend",
     isFeatured: false,
-    year: "2024",
+    year: "2024 – 2025",
     status: {
       es: "En Producción",
       en: "In Production",
     },
     title: {
-      es: "Motor de Liquidación & Carga Masiva Financiera",
-      en: "Bulk Financial Settlement & Processing Engine",
+      es: "Motor ETL & Sincronización ERP para Power BI",
+      en: "ETL Engine & ERP Data Sync for Power BI",
     },
     tagline: {
-      es: "Procesamiento batch de alto volumen para acuerdos comerciales y conciliación contable periódica",
-      en: "High-volume batch processing for commercial agreements and periodic ledger reconciliations",
+      es: "Pipeline de streaming reactivo con Fastify, procesamiento masivo por lotes y carga transaccional en MySQL",
+      en: "Reactive streaming pipeline with Fastify, bulk batch processing, and transactional MySQL ingestion",
+    },
+    myRole: {
+      es: "Mantenimiento Evolutivo, Arquitectura de Datos & Backend",
+      en: "Evolutionary Maintenance, Data Architecture & Backend",
+    },
+    challenge: {
+      es: "Garantizar la continuidad operativa y escalabilidad de un pipeline de ingesta masiva que alimenta la reportería analítica y tableros de Power BI corporativos. El reto residía en sincronizar más de 25 entidades maestras y transaccionales desde el ERP empresarial central evitando desbordamientos de memoria (Node.js heap) ante respuestas JSON de decenas de megabytes, garantizando atomicidad transaccional y registro de auditoría ante fallos.",
+      en: "Ensuring operational continuity and scale for a massive data ingestion pipeline feeding corporate Power BI analytics dashboards. The challenge lay in syncing 25+ master and transactional entities from the central enterprise ERP without Node.js memory exhaustion on heavy JSON payloads, ensuring transactional atomicity and audit logging.",
+    },
+    solution: {
+      es: "Optimizé el pipeline empleando Fastify y streaming reactivo con stream-json para procesar y filtrar datos en vuelo sin sobrecargar la memoria. Diseñé e integré el repositorio genérico de inserción masiva (insertBulkGeneric) que fragmenta grandes volúmenes en chunks de 400 registros con pausas reguladas, transacciones ACID con rollback y registro detallado de auditoría. Amplié el catálogo de entidades e integré gestión continua mediante PM2.",
+      en: "Optimized the pipeline using Fastify and reactive streaming via stream-json to parse and filter heavy data on the fly without memory overhead. Designed and integrated a generic bulk insertion repository (insertBulkGeneric) slicing heavy datasets into 400-record chunks with rate-limiting delays, ACID transaction rollbacks, and detailed auditing. Expanded entity coverage and supervised execution with PM2.",
     },
     description: {
-      es: "Sistema transaccional de misión crítica que automatiza la ingesta masiva de archivos financieros, validación de reglas de negocio en lotes y liquidación automatizada con cron jobs resilientes ante fallos.",
-      en: "Mission-critical transactional system automating bulk financial file ingestion, batch business rule validation, and automated settlement workflows with fault-tolerant cron schedulers.",
+      es: "Servicio backend de alto rendimiento para extracción, transformación y carga (ETL) periódica de datos desde el ERP central hacia almacenes de datos MySQL optimizados para Power BI. Soporta más de 25 entidades comerciales (facturación, pedidos de compra, remisiones, traslados, inventarios y maestros de terceros) con supervisión en PM2 y trazabilidad completa de lotes.",
+      en: "High-performance backend service for automated periodic ETL extraction, transformation, and loading from the central ERP into an optimized MySQL analytics store for Power BI reporting. Processes over 25 business domains (invoicing, purchase orders, referrals, transfers, inventory, and master catalogs) with PM2 process supervision and full batch traceability.",
     },
     architecture: {
-      es: "Arquitectura hexagonal en NestJS, base de datos relacional con particionamiento y transacciones ACID.",
-      en: "Hexagonal architecture in NestJS, partitioned relational database, and strict ACID transaction management.",
+      es: "Microservicio en Fastify + TypeScript, cliente HTTP con Axios/Undici, streaming de payloads con stream-json, repositorio de inserción masiva por lotes (chunkSize: 400), pool de conexiones MySQL con transacciones ACID y gestión de procesos con PM2.",
+      en: "Fastify + TypeScript microservice, HTTP transport via Axios/Undici, memory-safe payload streaming with stream-json, chunked bulk-insertion engine (400 records/batch), MySQL connection pool with ACID transactions, and PM2 process management.",
     },
     media: {
       type: "image",
-      url: "/imgs/me-hero.png",
-      alt: "Motor de Liquidación Financiera",
+      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "Motor ETL & Sincronización ERP Atmopel",
       aspectRatio: "16/9",
     },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/datasync-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/datasync-poster.png",
+        alt: "Demostración de Ejecución y Sincronización de Datos",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/datasync-powerbi.png",
+        alt: "Modelo de Datos y Visualización en Power BI",
+      },
+      */
+    ],
     technologies: [
-      "NestJS",
+      "Fastify",
+      "Node.js",
       "TypeScript",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
-      "GitHub Actions",
+      "MySQL",
+      "Linux",
     ],
     highlights: {
       es: [
-        "Procesamiento masivo de miles de transacciones por lote con validación estricta.",
-        "Schedulers automatizados con reintentos exponenciales y alertas en tiempo real.",
-        "Auditoría y trazabilidad completa de cada liquidación generada.",
+        "Pipeline de streaming reactivo con stream-json que previene cuellos de botella y desbordamientos de memoria en Node.js.",
+        "Motor de inserción masiva transaccional por lotes (chunks de 400 registros) con rollback automático y auditoría ante fallos.",
+        "Sincronización automatizada de más de 25 entidades maestras y transaccionales (facturas, pedidos, traslados, stock y retenciones).",
+        "Optimización de consultas a la base de datos MySQL y reducción drástica de tiempos de ingesta para Power BI.",
+        "Operación desatendida y monitoreo en servidor Linux administrado mediante PM2.",
       ],
       en: [
-        "Bulk processing of thousands of transactions per batch with strict validation.",
-        "Automated schedulers with exponential backoff retries and real-time alerts.",
-        "Full audit trails and traceability for every executed settlement.",
+        "Reactive payload streaming via stream-json eliminating memory leaks and Node.js heap crashes on heavy responses.",
+        "Transactional chunked bulk-insert engine (400-record batches) with automated rollback and granular error audit logging.",
+        "Automated synchronization of 25+ master and transactional entities (invoices, orders, transfers, stock, and withholdings).",
+        "MySQL query optimization drastically decreasing ingestion latency for corporate Power BI dashboards.",
+        "Unattended execution and process supervision on Linux production servers managed with PM2.",
       ],
     },
     metrics: [
-      { label: "Transacciones", value: "+50k / lote" },
-      { label: "Error Rate", value: "< 0.01%" },
-      { label: "Automatización", value: "100% Schedulers" },
+      { label: "Entidades", value: "+25 Modelos" },
+      { label: "Ingesta", value: "Chunked Bulk" },
+      { label: "Destino", value: "Power BI" },
     ],
     links: {
-      github: "https://github.com/AndresCardona10",
+      // Repositorio y endpoints privados empresariales
     },
   },
   {

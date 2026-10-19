@@ -16,6 +16,7 @@
 }
 
 :root {
+  color-scheme: light;
   --background: #f8fafc;
   --foreground: #090e17;
   --card: #ffffff;
@@ -29,6 +30,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: #080c14;
   --foreground: #f1f5f9;
   --card: #0d1424;
@@ -85,24 +87,35 @@ body {
   background: rgba(148, 163, 184, 0.6);
 }
 
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.35);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.65);
+  background: rgba(59, 130, 246, 0.7);
 }
 
-* {
+/* Firefox scrollbar */
+html {
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
 }
 
-.dark * {
+html.dark {
   scrollbar-color: rgba(59, 130, 246, 0.35) transparent;
 }
 
-/* Utilidad específica para contenedores con scroll suave */
+/* Utilidad específica para contenedores con scroll */
 .custom-scrollbar {
   scrollbar-width: thin;
 }
@@ -114,12 +127,17 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
-  margin: 6px 0;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(148, 163, 184, 0.35);
   border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
