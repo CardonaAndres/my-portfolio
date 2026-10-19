@@ -320,62 +320,85 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
-    id: "cloud-devops-bluegreen-pipeline",
-    category: "cloud",
+    id: "igb-calidosos-loyalty",
+    category: "fullstack",
     isFeatured: false,
-    year: "2024",
+    year: "2023 – 2024",
     status: {
-      es: "Infraestructura",
-      en: "Infrastructure",
+      es: "En Producción",
+      en: "In Production",
     },
     title: {
-      es: "Infraestructura Cloud & CI/CD Blue-Green",
-      en: "Cloud Infrastructure & Blue-Green CI/CD",
+      es: "Portal de Fidelización & Recompensas IGB (Calidosos)",
+      en: "IGB Calidosos Loyalty & Rewards Platform",
     },
     tagline: {
-      es: "Pipeline de integración y despliegue continuo automatizado con balanceo de carga y rollback instantáneo",
-      en: "Automated continuous delivery pipeline with load balancing and instant rollback capabilities",
+      es: "Estabilización y soporte operativo de sistema transaccional legacy sobre Node.js 9 y servidor Ubuntu antiguo",
+      en: "Operational stabilization and maintenance for legacy transactional system on Node.js 9 & legacy Ubuntu",
+    },
+    myRole: {
+      es: "Ingeniero de Soporte & Mantenimiento de Sistemas Legacy",
+      en: "Legacy Systems Support & Maintenance Engineer",
+    },
+    challenge: {
+      es: "Garantizar la disponibilidad 24/7 de un portal corporativo de fidelización y redención de puntos montado sobre una arquitectura legacy de Node.js 9 y un servidor físico Ubuntu con sistema operativo antiguo. El reto principal fue atender incidencias críticas, fallos de sesión y bloqueos en producción sin opción de reescribir la plataforma, operando bajo dependencias deprecadas y restricciones severas de compatibilidad.",
+      en: "Ensuring 24/7 availability for an active corporate loyalty & points redemption portal built on legacy Node.js 9 and hosted on an aged Ubuntu server. The primary challenge was diagnosing critical production incidents, session drops, and bottlenecks without full rewrites, maneuvering through deprecated packages and rigid infrastructure constraints.",
+    },
+    solution: {
+      es: "Lideré el soporte y mantenimiento correctivo continuo, diagnosticando y solventando fallos críticos en producción sin interrumpir el servicio comercial. Optimicé consultas directas a MySQL para acelerar la carga de catálogos y balances de puntos, estabilicé el manejo de sesiones en Express y administré la persistencia y supervisión de procesos directamente sobre el servidor Ubuntu.",
+      en: "Delivered continuous corrective maintenance, isolating and resolving critical production bugs without interrupting commercial operations. Optimized raw MySQL queries to speed up catalog and balance lookups, stabilized Express session lifecycles, and managed process supervision directly on the legacy Ubuntu server.",
     },
     description: {
-      es: "Infraestructura contenerizada con Docker y Nginx como reverse proxy. Permite alternar tráfico entre instancias activas e inactivas (Blue/Green) para publicar actualizaciones sin interrumpir la operación de los usuarios.",
-      en: "Containerized infrastructure with Docker and Nginx reverse proxy. Seamlessly switches traffic between active and inactive slots (Blue/Green) to release software updates without interrupting users.",
+      es: "Mantenimiento operativo y soporte continuo para la plataforma de fidelización 'Calidosos' de IGB (programa de incentivos y catálogo de redención para distribuidores y vendedores de repuestos de motocicletas). Operación técnica sobre una base de código monolítica en Node.js 9, vistas EJS y base de datos MySQL en servidor Linux Ubuntu heredado.",
+      en: "Operational maintenance and ongoing support for IGB's 'Calidosos' loyalty platform (rewards and points redemption program for motorcycle parts distributors and sales reps). Technical maintenance over a legacy monolithic codebase built on Node.js 9, EJS views, and MySQL on an older Ubuntu Linux server.",
     },
     architecture: {
-      es: "Contenedores Docker multi-stage, proxy inverso Nginx con health checks y pipelines en GitHub Actions.",
-      en: "Multi-stage Docker containers, Nginx reverse proxy with health checks, and GitHub Actions pipelines.",
+      es: "Monolito MVC clásico: Runtime Node.js 9, servidor Express.js con motor de plantillas EJS, gestión de sesiones con express-session, base de datos relacional MySQL y orquestación de procesos en servidor Ubuntu Linux.",
+      en: "Classic MVC monolith: Node.js 9 runtime, Express.js server with EJS template engine, session management via express-session, relational MySQL database, and process management on legacy Ubuntu Linux server.",
     },
     media: {
       type: "image",
-      url: "/imgs/stack-img.png",
-      alt: "Infraestructura Cloud CI/CD",
+      url: "/imgs/me-hero.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "Portal de Fidelización IGB Calidosos",
       aspectRatio: "16/9",
     },
+    gallery: [
+      /*
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/calidosos-portal.png",
+        alt: "Portal de Clientes Calidosos",
+      },
+      */
+    ],
     technologies: [
-      "Docker",
-      "Nginx",
-      "GitHub Actions",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "JavaScript",
       "Linux",
-      "TypeScript",
     ],
     highlights: {
       es: [
-        "Despliegues automatizados directos a producción sin desconexión de clientes.",
-        "Health checks automáticos con rollback en caso de fallo durante el despliegue.",
-        "Imágenes Docker multi-etapa ligeras y optimizadas para seguridad.",
+        "Soporte técnico continuo y resolución de fallos críticos en producción bajo entorno legacy Node.js 9.",
+        "Depuración y corrección de incidencias en flujos de redención de puntos, catálogo y sesiones de usuario.",
+        "Optimización de consultas SQL y estabilización de conexiones contra base de datos MySQL.",
+        "Mantenimiento y supervisión de procesos en servidor Ubuntu Linux legacy garantizando cero caídas del portal.",
       ],
       en: [
-        "Automated direct-to-production releases with zero client connection dropouts.",
-        "Automatic health checking with instant rollback on deployment anomalies.",
-        "Lightweight multi-stage Docker images hardened for security.",
+        "Continuous technical support and critical bug resolution in production under legacy Node.js 9 environment.",
+        "Debugging and troubleshooting points redemption workflows, catalog queries, and user session drops.",
+        "SQL query optimization and connection pool stabilization against MySQL database.",
+        "Process supervision and maintenance on legacy Ubuntu Linux server guaranteeing zero downtime.",
       ],
     },
     metrics: [
-      { label: "Downtime Despliegue", value: "0 segundos" },
-      { label: "Tiempo de Build", value: "< 3 min" },
-      { label: "Rollback", value: "Instantáneo" },
+      { label: "Runtime", value: "Node.js 9 Legacy" },
+      { label: "Servidor", value: "Ubuntu Linux" },
+      { label: "Disponibilidad", value: "99.9% Uptime" },
     ],
     links: {
-      github: "https://github.com/AndresCardona10",
+      // Repositorio y accesos privados corporativos
     },
   },
   {
