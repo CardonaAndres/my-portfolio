@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Maximize2 } from "lucide-react";
 import { GithubIcon, TechIcon } from "@/core/components/icons";
 import { ProjectMedia } from "@/modules/projects/components/ProjectMedia";
 import type { Locale } from "@/core/interfaces/i18n.interface";
@@ -9,11 +9,15 @@ import type { ProjectItem } from "@/modules/projects/interfaces/project.interfac
 interface ProjectCardProps {
   project: ProjectItem;
   locale: Locale;
+  onSelect?: (project: ProjectItem) => void;
 }
 
-export const ProjectCard = ({ project, locale }: ProjectCardProps) => {
+export const ProjectCard = ({ project, locale, onSelect }: ProjectCardProps) => {
   return (
-    <article className="rounded-2xl border border-border/80 bg-card/70 dark:bg-[#0c1017]/90 backdrop-blur-sm p-4 sm:p-5 flex flex-col justify-between gap-4 shadow-xs hover:border-blue-500/50 hover:bg-blue-500/[0.015] transition-all duration-300 group">
+    <article
+      onClick={() => onSelect?.(project)}
+      className="rounded-2xl border border-border/80 bg-card/70 dark:bg-[#0c1017]/90 backdrop-blur-sm p-4 sm:p-5 flex flex-col justify-between gap-4 shadow-xs hover:border-blue-500/50 hover:bg-blue-500/[0.015] hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 group cursor-pointer"
+    >
       {/* Contenedor Superior: Media + Metadata */}
       <div className="space-y-3.5">
         {/* Media Preview (Video o Imagen) */}
@@ -86,31 +90,45 @@ export const ProjectCard = ({ project, locale }: ProjectCardProps) => {
 
         {/* Botones de Acción */}
         <div className="flex items-center justify-between gap-2 pt-1 font-mono text-xs">
-          {project.links.live ? (
-            <a
-              href={project.links.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px] shadow-xs hover:shadow-md transition-all cursor-pointer"
-            >
-              <span>{locale === "es" ? "Demo" : "Live"}</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          ) : (
-            <div />
-          )}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelect?.(project);
+            }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-semibold text-[11px] border border-blue-500/25 transition-all cursor-pointer shadow-2xs hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <Maximize2 className="w-3 h-3" />
+            <span>{locale === "es" ? "Ver Detalle" : "View Detail"}</span>
+          </button>
 
-          {project.links.github && (
-            <a
-              href={project.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/70 bg-card hover:bg-muted text-muted-foreground hover:text-foreground text-[11px] font-medium transition-colors cursor-pointer"
-            >
-              <GithubIcon className="w-3.5 h-3.5" size={12} />
-              <span>{locale === "es" ? "Código" : "Code"}</span>
-            </a>
-          )}
+          <div className="flex items-center gap-2">
+            {project.links.live && (
+              <a
+                href={project.links.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px] shadow-xs hover:shadow-md transition-all cursor-pointer"
+              >
+                <span>{locale === "es" ? "Demo" : "Live"}</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            )}
+
+            {project.links.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-border/70 bg-card hover:bg-muted text-muted-foreground hover:text-foreground text-[11px] font-medium transition-colors cursor-pointer"
+              >
+                <GithubIcon className="w-3 h-3" size={12} />
+                <span>{locale === "es" ? "Código" : "Code"}</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </article>

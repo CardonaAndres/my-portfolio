@@ -137,6 +137,98 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
+    id: "atmopel-b2c-ecommerce",
+    category: "fullstack",
+    isFeatured: false,
+    year: "2024 – 2025",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "Plataforma E-commerce B2C Atmopel",
+      en: "Atmopel B2C E-commerce Platform",
+    },
+    tagline: {
+      es: "Soporte evolutivo continuo, modernización brownfield, contenedorización Docker e integración ERP Siesa de misión crítica",
+      en: "Continuous evolutionary support, brownfield modernization, Docker containerization, and mission-critical Siesa ERP sync",
+    },
+    myRole: {
+      es: "Soporte Evolutivo, DevOps & Integraciones Core",
+      en: "Evolutionary Support, DevOps & Core Integrations",
+    },
+    challenge: {
+      es: "Asumir la titularidad técnica de una tienda virtual B2C en producción continua con deuda técnica acumulada, dependencias desalineadas entre entornos y procesos de sincronización manual propensos a inconsistencias de catálogo, stock y tarifas frente al ERP empresarial central.",
+      en: "Taking technical ownership of an active, production-grade B2C e-commerce platform with legacy technical debt, inconsistent environments, and manual synchronization prone to inventory and pricing discrepancies against the central enterprise ERP.",
+    },
+    solution: {
+      es: "Orquesté la contenedorización completa de cliente y servidor mediante Docker y Docker Compose para paridad estricta dev/prod, vinculándola a una red de monitoreo externa. Automaticé la sincronización bidireccional de inventario y precios contra Web Services SOAP del ERP Siesa mediante cron schedulers resilientes, instrumenté telemetría HTTP en tiempo real con Prometheus (prom-client) y estandaricé el flujo de Git bajo convenciones estrictas.",
+      en: "Architected complete containerization across client and server via Docker & Docker Compose for strict dev/prod parity connected to an external observability network. Automated bi-directional inventory and pricing synchronization against Siesa ERP SOAP Web Services with resilient cron jobs, instrumented real-time HTTP telemetry using Prometheus (prom-client), and standardized Git development workflows.",
+    },
+    description: {
+      es: "Gestión técnica, mantenimiento evolutivo y desarrollo de nuevas funcionalidades para la plataforma e-commerce de Atmopel (líder en distribución mayorista y minorista de repuestos y accesorios en Colombia). Implementación de infraestructura Dockerizada, optimización de queries MySQL críticas, automatización de integraciones SOAP y monitoreo preventivo de tráfico.",
+      en: "Technical management, evolutionary maintenance, and feature development for Atmopel's e-commerce platform (leading distributor of automotive and motorcycle parts in Colombia). Containerized infrastructure deployment, critical MySQL query tuning, automated SOAP integrations, and proactive HTTP traffic monitoring.",
+    },
+    architecture: {
+      es: "Frontend SSR con Express.js + plantillas EJS y gestión de sesiones; Backend REST API en Node.js/Express con MySQL relacional y orquestador de cron jobs; Infraestructura en Docker Compose vinculada a red de monitoreo externa (Prometheus, Promtail/Loki).",
+      en: "SSR Frontend with Express.js + EJS templates and session management; REST API Backend in Node.js/Express with relational MySQL and cron schedulers; Docker Compose infrastructure connected to an external monitoring network (Prometheus, Promtail/Loki).",
+    },
+    media: {
+      type: "image",
+      url: "/imgs/project-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "Plataforma E-commerce B2C Atmopel",
+      aspectRatio: "16/9",
+    },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/atmopel-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/atmopel-poster.png",
+        alt: "Demostración en Video del E-commerce Atmopel",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/atmopel-catalogo.png",
+        alt: "Catálogo y Búsqueda de Productos Atmopel",
+      },
+      */
+    ],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Docker",
+      "Git",
+      "Linux",
+    ],
+    highlights: {
+      es: [
+        "Contenedorización integral con Docker y Docker Compose (dev/prod) garantizando aislamiento y despliegues reproducibles.",
+        "Automatización de sincronización de referencias, stock activo y reglas de precios mediante Web Services SOAP de Siesa ERP.",
+        "Instrumentación de telemetría HTTP en tiempo real con Prometheus (prom-client) capturando throughput, histogramas de latencia y errores.",
+        "Desarrollo de nuevas funcionalidades comerciales: filtrado de productos destacados, validación de pedidos, formularios y plantillas dinámicas.",
+        "Reestructuración del flujo de Git con commits convencionales y resolución de cuellos de botella en consultas críticas de MySQL.",
+      ],
+      en: [
+        "Full containerization with Docker & Docker Compose (dev/prod) ensuring environment parity and isolated runtime dependencies.",
+        "Automated synchronization of inventory references, live stock, and pricing rules against Siesa ERP SOAP Web Services.",
+        "Real-time HTTP telemetry instrumentation via Prometheus (prom-client) capturing throughput, latency histograms, and error rates.",
+        "Shipped business-critical features: featured product filters, order validation workflows, forms, and dynamic templates.",
+        "Git workflow standardization with conventional commits and elimination of SQL query bottlenecks in MySQL.",
+      ],
+    },
+    metrics: [
+      { label: "Infraestructura", value: "Dockerizada" },
+      { label: "Integración", value: "SOAP Siesa" },
+      { label: "Monitoreo", value: "Prometheus" },
+    ],
+    links: {
+      // live: "https://tienda.atmopel.com", // Descomenta y coloca la URL si está pública
+    },
+  },
+  {
     id: "bulk-financial-settlement-engine",
     category: "backend",
     isFeatured: false,

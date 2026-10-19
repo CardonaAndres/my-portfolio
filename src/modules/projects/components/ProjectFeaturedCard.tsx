@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Cpu, ExternalLink, Sparkles } from "lucide-react";
+import { CheckCircle2, Cpu, ExternalLink, Sparkles, Maximize2 } from "lucide-react";
 import { GithubIcon, TechIcon } from "@/core/components/icons";
 import { ProjectMedia } from "@/modules/projects/components/ProjectMedia";
 import type { Locale } from "@/core/interfaces/i18n.interface";
@@ -9,9 +9,10 @@ import type { ProjectItem } from "@/modules/projects/interfaces/project.interfac
 interface ProjectFeaturedCardProps {
   project: ProjectItem;
   locale: Locale;
+  onSelect?: (project: ProjectItem) => void;
 }
 
-export const ProjectFeaturedCard = ({ project, locale }: ProjectFeaturedCardProps) => {
+export const ProjectFeaturedCard = ({ project, locale, onSelect }: ProjectFeaturedCardProps) => {
   return (
     <article className="relative w-full rounded-2xl border border-blue-500/35 bg-card/85 dark:bg-[#0c121e]/90 backdrop-blur-md p-5 sm:p-6 shadow-xl shadow-blue-500/5 hover:border-blue-500/70 transition-all duration-300 group flex flex-col gap-5">
       {/* Glow ambiental superior derecho */}
@@ -129,6 +130,15 @@ export const ProjectFeaturedCard = ({ project, locale }: ProjectFeaturedCardProp
 
         {/* Acciones y Enlaces */}
         <div className="flex flex-wrap items-center gap-2.5 pt-3 border-t border-border/50">
+          <button
+            type="button"
+            onClick={() => onSelect?.(project)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-mono text-xs font-semibold border border-blue-500/30 transition-all cursor-pointer shadow-xs hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+            <span>{locale === "es" ? "Ver Detalle Completo" : "Full Details"}</span>
+          </button>
+
           {project.links.live && (
             <a
               href={project.links.live}

@@ -48,7 +48,20 @@ export interface ProjectItem {
     es: string;
     en: string;
   };
+  myRole?: {
+    es: string;
+    en: string;
+  };
+  challenge?: {
+    es: string;
+    en: string;
+  };
+  solution?: {
+    es: string;
+    en: string;
+  };
   media: ProjectMedia;
+  gallery?: ProjectMedia[];
   technologies: string[];
   highlights: {
     es: string[];
@@ -56,6 +69,12 @@ export interface ProjectItem {
   };
   metrics: ProjectMetric[];
   links: ProjectLinks;
+}
+
+export interface ProjectModalProps {
+  project: ProjectItem | null;
+  onClose: () => void;
+  locale: Locale;
 }
 
 export interface ProjectsSectionProps {

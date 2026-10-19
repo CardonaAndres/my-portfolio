@@ -1,19 +1,23 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { FolderGit2, Sparkles } from "lucide-react";
 import type { Locale } from "@/core/interfaces/i18n.interface";
+import type { ProjectItem } from "@/modules/projects/interfaces/project.interface";
 import { PROJECTS_DATA } from "@/modules/projects/constants/projects.constant";
 import { ProjectsHeader } from "@/modules/projects/components/ProjectsHeader";
 import { ProjectsAvatarCard } from "@/modules/projects/components/ProjectsAvatarCard";
 import { ProjectFeaturedCard } from "@/modules/projects/components/ProjectFeaturedCard";
 import { ProjectCard } from "@/modules/projects/components/ProjectCard";
+import { ProjectModal } from "@/modules/projects/components/ProjectModal";
 
 interface ProjectsSectionProps {
   locale: Locale;
 }
 
 export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
   // Proyectos destacados (sección superior izquierda)
   const featuredProjects = useMemo(() => {
     return PROJECTS_DATA.filter((p) => p.isFeatured);
@@ -56,7 +60,12 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
               {/* Lista de tarjetas destacadas completas */}
               <div className="flex flex-col gap-8">
                 {featuredProjects.map((project) => (
-                  <ProjectFeaturedCard key={project.id} project={project} locale={locale} />
+                  <ProjectFeaturedCard
+                    key={project.id}
+                    project={project}
+                    locale={locale}
+                    onSelect={setSelectedProject}
+                  />
                 ))}
               </div>
             </div>
@@ -87,12 +96,24 @@ export const ProjectsSection = ({ locale }: ProjectsSectionProps) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {gridProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} locale={locale} />
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  locale={locale}
+                  onSelect={setSelectedProject}
+                />
               ))}
             </div>
           </div>
         )}
       </div>
+
+      {/* Modal interactivo con todo el detalle técnico y galería multimedia */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+        locale={locale}
+      />
     </section>
   );
 };
