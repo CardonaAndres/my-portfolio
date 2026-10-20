@@ -31,6 +31,7 @@ export type TechIconName =
   | "prisma"
   | "graphql"
   | "sqlserver"
+  | "firebase"
   // DevOps & Cloud
   | "docker"
   | "nginx"

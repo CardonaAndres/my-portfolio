@@ -40,3 +40,4 @@ export { LinkedinIcon } from "@/core/components/icons/tech/LinkedinIcon";
 export { TraefikIcon } from "@/core/components/icons/tech/TraefikIcon";
 export { RustIcon } from "@/core/components/icons/tech/RustIcon";
 export { CaddyIcon } from "@/core/components/icons/tech/CaddyIcon";
+export { FirebaseIcon } from "@/core/components/icons/tech/FirebaseIcon";

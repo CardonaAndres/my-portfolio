@@ -54,12 +54,12 @@ export const ProjectCard = ({ project, locale, onSelect }: ProjectCardProps) => 
             {project.metrics.map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-lg border border-border/60 bg-muted/30 dark:bg-[#151b27]/60 p-1.5 text-center flex flex-col justify-center"
+                className="rounded-lg border border-border/60 bg-muted/30 dark:bg-[#151b27]/60 px-1 py-1.5 text-center flex flex-col justify-center min-h-[44px]"
               >
-                <span className="font-mono text-[11px] font-bold text-foreground truncate">
+                <span className="font-mono text-[10px] sm:text-[10.5px] font-bold text-foreground leading-tight whitespace-nowrap">
                   {metric.value}
                 </span>
-                <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-tight truncate">
+                <span className="font-mono text-[8.5px] sm:text-[9px] text-muted-foreground uppercase tracking-tight mt-0.5 leading-tight whitespace-nowrap">
                   {metric.label}
                 </span>
               </div>

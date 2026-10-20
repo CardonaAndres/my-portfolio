@@ -41,6 +41,7 @@ import { GithubIcon } from "@/core/components/icons/tech/GithubIcon";
 import { TraefikIcon } from "@/core/components/icons/tech/TraefikIcon";
 import { RustIcon } from "@/core/components/icons/tech/RustIcon";
 import { CaddyIcon } from "@/core/components/icons/tech/CaddyIcon";
+import { FirebaseIcon } from "@/core/components/icons/tech/FirebaseIcon";
 
 interface TechIconProps extends IconProps {
   name: TechIconName | string;
@@ -87,6 +88,8 @@ const TECH_ICON_MAP: Record<string, ComponentType<IconProps>> = {
   sqlserver: SqlServerIcon,
   mssql: SqlServerIcon,
   microsoftsqlserver: SqlServerIcon,
+  firebase: FirebaseIcon,
+  fcm: FirebaseIcon,
 
   // DevOps & Cloud
   docker: DockerIcon,

@@ -460,7 +460,279 @@ export const PROJECTS_DATA: ProjectItem[] = [
       ],
     },
     metrics: [
-      { label: "Runtime", value: "Node.js 9 Legacy" },
+      { label: "Runtime", value: "Node.js 9" },
+      { label: "Servidor", value: "Ubuntu Linux" },
+      { label: "Disponibilidad", value: "99.9% Uptime" },
+    ],
+    links: {
+      // Repositorio y accesos privados corporativos
+    },
+  },
+  {
+    id: "pedbox-orders-api-kurapika",
+    category: "backend",
+    isFeatured: false,
+    year: "2024 – 2026",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "API de Procesamiento de Pedidos & Integración Multi-ERP (Pedbox)",
+      en: "Order Processing API & Multi-ERP Integration Engine (Pedbox)",
+    },
+    tagline: {
+      es: "Soporte evolutivo continuo, arquitectura desacoplada de integraciones (Contapyme, Siesa, Odoo) y resiliencia en despacho de pedidos",
+      en: "Continuous evolutionary support, decoupled integration architecture (Contapyme, Siesa, Odoo), and resilient order dispatching",
+    },
+    myRole: {
+      es: "Soporte Evolutivo, Backend Engineer & Nuevas Integraciones ERP",
+      en: "Evolutionary Support, Backend Engineer & New ERP Integrations",
+    },
+    challenge: {
+      es: "Asumir la titularidad técnica del backend central que procesa pedidos, cotizaciones y facturación para múltiples empresas clientes de Pedbox (multitenancy empresarial). El sistema presentaba puntos de fallo por dependencias heterogéneas entre ERPs externos (Contapyme, Siesa, Odoo, DMS), incidencias por caídas de conectividad y timeouts durante la sincronización, requiriendo mecanismos de reintento automático e idempotencia para evitar pedidos duplicados o perdidos.",
+      en: "Taking technical ownership of the central backend processing orders, quotations, and invoicing across multiple Pedbox client enterprises (enterprise multi-tenancy). The system faced points of failure due to heterogeneous external ERP APIs (Contapyme, Siesa, Odoo, DMS), latency timeouts, and connectivity disruptions, demanding automated retry mechanisms and strict idempotency to prevent duplicated or lost orders.",
+    },
+    solution: {
+      es: "Estabilicé la API en producción y desarrollé soporte evolutivo continuo. Diseñé e implementé una arquitectura desacoplada de integraciones mediante un Factory Pattern ('erp.factory.js'), desarrollando desde cero el adaptador de integración para el ERP Contapyme ('contapyme.erp.js') con gestión de tokens de sesión y transformación de esquemas de datos. Añadí políticas de resiliencia con timeouts defensivos, colas de reintento automatizado ('sendAgainOrder') para pedidos retenidos, validación multi-empresa (IGB, Varroc, Wali, Siesa, Contapyme), notificaciones push en tiempo real a clientes y repartidores con Firebase Cloud Messaging (FCM) y generación dinámica de comprobantes de despacho en PDF con html-pdf.",
+      en: "Stabilized the production API and spearheaded continuous evolutionary maintenance. Architected a decoupled integration layer using an ERP Factory Pattern ('erp.factory.js'), building from scratch the adapter for Contapyme ERP ('contapyme.erp.js') with session token lifecycle and payload transformation. Engineered resilience policies with defensive timeouts, automated retry queues ('sendAgainOrder') for held orders, multi-tenant company validation (IGB, Varroc, Wali, Siesa, Contapyme), real-time push alerts via Firebase Cloud Messaging (FCM), and dynamic dispatch PDF receipt generation with html-pdf.",
+    },
+    description: {
+      es: "Motor transaccional REST central que procesa y enruta pedidos de clientes, cotizaciones y facturas desde aplicaciones móviles y plataformas web hacia los ERPs de diversas compañías clientes de Pedbox. Gestiona validación de stock, esquemas de descuentos escalonados, sincronización de bases de datos híbridas MySQL y SQL Server, y notificación de novedades de entrega.",
+      en: "Central transactional REST engine processing and dispatching customer orders, quotations, and invoices from mobile apps and web platforms into the enterprise ERPs of Pedbox client businesses. Manages stock validation, tiered discount calculations, hybrid MySQL & SQL Server database synchronization, and automated delivery status alerts.",
+    },
+    architecture: {
+      es: "API REST en Express.js y Node.js; Patrón Factory de ERPs (Contapyme REST, Siesa SOAP/XML, Odoo, DMS); Bases de datos híbridas relacionales MySQL y Microsoft SQL Server; Notificaciones push en tiempo real con Firebase Admin SDK; Generador de reportes PDF con html-pdf.",
+      en: "REST API in Express.js and Node.js; ERP Factory Pattern (Contapyme REST, Siesa SOAP/XML, Odoo, DMS); Hybrid MySQL and Microsoft SQL Server relational databases; Real-time push notifications via Firebase Admin SDK; Automated dispatch PDF generation with html-pdf.",
+    },
+    media: {
+      type: "image",
+      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "API de Procesamiento de Pedidos Pedbox (Kurapika)",
+      aspectRatio: "16/9",
+    },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/pedbox-orders-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/pedbox-orders-poster.png",
+        alt: "Demostración de Enrutamiento y Despacho de Pedidos",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/pedbox-orders-flow.png",
+        alt: "Flujo de Integración Multi-ERP",
+      },
+      */
+    ],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "SQL Server",
+      "Firebase",
+      "Linux",
+    ],
+    highlights: {
+      es: [
+        "Soporte técnico y mantenimiento correctivo/evolutivo continuo en producción para el backend core de pedidos de Pedbox.",
+        "Diseño y desarrollo del adaptador de integración para el ERP Contapyme y orquestador desacoplado erp.factory.",
+        "Mecanismo de resiliencia con colas de reintento automático para pedidos retenidos o fallidos por desconexión del ERP.",
+        "Parametrización y lógica de negocio multi-empresa personalizada (IGB, Varroc, Wali, Siesa, Contapyme).",
+        "Envío de notificaciones push en tiempo real mediante Firebase Admin SDK (FCM) y generación de reportes PDF.",
+        "Coordinación y consistencia de datos transaccionales en bases de datos MySQL y Microsoft SQL Server.",
+      ],
+      en: [
+        "Continuous technical support and evolutionary maintenance in production for Pedbox's core order backend.",
+        "Designed and developed the Contapyme ERP integration adapter and decoupled erp.factory dispatch orchestrator.",
+        "Resilient automated retry queues for held or failed orders during third-party ERP connectivity drops.",
+        "Custom multi-tenant business logic and rule parametrization across enterprise clients (IGB, Varroc, Wali, Siesa, Contapyme).",
+        "Real-time push alerts via Firebase Admin SDK (FCM) and automated dispatch receipt generation in PDF.",
+        "Data consistency and coordination across hybrid MySQL and Microsoft SQL Server relational databases.",
+      ],
+    },
+    metrics: [
+      { label: "Integraciones", value: "+4 ERPs" },
+      { label: "Mensajería", value: "Firebase FCM" },
+      { label: "Databases", value: "MySQL + MSSQL" },
+    ],
+    links: {
+      // Repositorio y endpoints privados corporativos Pedbox S.A.S
+    },
+  },
+  {
+    id: "pedbox-sync-api-bakugo",
+    category: "backend",
+    isFeatured: false,
+    year: "2024 – 2026",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "API de Sincronización de Datos Maestros & ERPs (Pedbox Sync)",
+      en: "Master Data & Multi-ERP Sync Engine (Pedbox Sync)",
+    },
+    tagline: {
+      es: "Soporte evolutivo, ingesta masiva SOAP/REST, desduplicación de datos y sincronización de catálogo, cartera y clientes multi-tenant",
+      en: "Evolutionary support, SOAP/REST bulk ingestion, data deduplication, and multi-tenant catalog, portfolio & customer sync",
+    },
+    myRole: {
+      es: "Soporte Evolutivo, Backend Engineer & Optimización de Datos",
+      en: "Evolutionary Support, Backend Engineer & Data Optimization",
+    },
+    challenge: {
+      es: "Mantener y evolucionar el motor neurálgico de sincronización de datos maestros de Pedbox, encargado de alimentar en tiempo real el catálogo de productos, existencias, cartera de clientes y rutas logísticas desde los ERPs empresariales. El reto radicaba en procesar respuestas SOAP/XML heterogéneas con grandes volúmenes de datos, evitar la duplicación de terceros en la base de datos relacional y asegurar la consistencia de inventario en plataformas móviles y e-commerce.",
+      en: "Maintaining and scaling Pedbox's core master data synchronization engine, responsible for feeding live product catalogs, stock, client credit portfolios, and logistics routes from enterprise ERPs. The challenge lay in ingesting heavy, heterogeneous SOAP/XML payloads, preventing client record duplication across relational schemas, and ensuring inventory consistency across mobile apps and e-commerce.",
+    },
+    solution: {
+      es: "Lideré el soporte correctivo y evolutivo de la API en producción. Diseñé algoritmos de desduplicación y sanitización en vuelo para terceros y sucursales, optimizando la asignación de vendedores y usuarios CRM. Implementé validaciones y adaptaciones multi-empresa (empresas 47, 50, etc.), mejoré el parser de diffgrams SOAP XML para soportar múltiples DataSets relacionales, incorporé soporte para ingesta por lotes desde archivos Excel con xlsx, y reorganicé los endpoints de sincronización dedicados para e-commerce y geolocalización.",
+      en: "Led continuous corrective and evolutionary maintenance for the production API. Engineered in-flight deduplication and data sanitization algorithms for customers and branch offices, streamlining seller assignments and CRM workflows. Rolled out multi-tenant company adapters (companies 47, 50, etc.), refined the SOAP XML diffgram parser across complex multi-table DataSets, added batch ingestion from Excel files via xlsx, and restructured dedicated sync pipelines for e-commerce and logistics geolocation.",
+    },
+    description: {
+      es: "Servicio backend especializado en la extracción, transformación e ingesta masiva de entidades maestras (productos, stock, clientes, listas de precios, cartera crediticia y fletes) entre sistemas de gestión ERP (Siesa, DMS, servicios SOAP) y la plataforma transaccional Pedbox. Cuenta con autenticación JWT, sincronización automática periódica y canales de actualización para e-commerce.",
+      en: "Specialized backend service for bulk extraction, transformation, and ingestion of master entities (products, stock, customers, price books, credit balances, and freight rules) between enterprise ERPs (Siesa, DMS, SOAP web services) and the Pedbox transactional platform. Features JWT authentication, scheduled periodic sync, and dedicated update channels for e-commerce.",
+    },
+    architecture: {
+      es: "Microservicio en Node.js y Express; Integración SOAP/XML con easysoap, fast-xml-parser y sax; Base de datos relacional MySQL con procesamiento por lotes; Procesamiento de hojas de cálculo con xlsx; Seguridad con JWT.",
+      en: "Node.js and Express microservice; SOAP/XML integration via easysoap, fast-xml-parser, and sax; Relational MySQL database with bulk batch processing; Spreadsheet parser with xlsx; Security with JWT.",
+    },
+    media: {
+      type: "image",
+      url: "/imgs/project-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "API de Sincronización de Datos Maestros Pedbox (Bakugo)",
+      aspectRatio: "16/9",
+    },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/pedbox-sync-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/pedbox-sync-poster.png",
+        alt: "Demostración de Sincronización Masiva de Clientes y Productos",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/pedbox-sync-flow.png",
+        alt: "Flujo de Integración SOAP/REST de Datos Maestros",
+      },
+      */
+    ],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Linux",
+      "Git",
+    ],
+    highlights: {
+      es: [
+        "Soporte evolutivo continuo y resolución de incidencias en producción para el motor de sincronización de Pedbox.",
+        "Desarrollo de lógica de desduplicación de clientes y sucursales en la sincronización masiva hacia MySQL.",
+        "Integración de protocolos SOAP y parseo de respuestas XML diffgram complejas con múltiples DataSets.",
+        "Parametrización y reglas de sincronización multi-tenant para diversas empresas clientes (compañías 47, 50, etc.).",
+        "Sincronización de cartera de crédito, estados de cuenta y listas de precios segmentadas por cliente.",
+        "Pipeline de actualización en tiempo real de inventario y referencias para tiendas e-commerce.",
+      ],
+      en: [
+        "Continuous evolutionary maintenance and production incident resolution for Pedbox's synchronization engine.",
+        "Engineered customer and branch office deduplication logic during heavy MySQL batch synchronization.",
+        "Integrated SOAP protocols with robust XML diffgram parsing across complex relational DataSets.",
+        "Parametrization and multi-tenant synchronization logic tailored for distinct enterprise clients (companies 47, 50, etc.).",
+        "Automated credit portfolio, billing balances, and tiered customer price list synchronization.",
+        "Real-time inventory and catalog update pipeline dedicated to e-commerce storefronts.",
+      ],
+    },
+    metrics: [
+      { label: "Entidades", value: "Master Data" },
+      { label: "Protocolos", value: "SOAP & REST" },
+      { label: "Operación", value: "Batch Sync" },
+    ],
+    links: {
+      // Repositorio y endpoints privados corporativos Pedbox S.A.S
+    },
+  },
+  {
+    id: "motozone-clubvip-loyalty",
+    category: "fullstack",
+    isFeatured: false,
+    year: "2023 – 2024",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "Portal de Fidelización & Club VIP Motozone",
+      en: "Motozone Club VIP Loyalty & Rewards Portal",
+    },
+    tagline: {
+      es: "Soporte correctivo, mantenimiento operativo y estabilización de sistema transaccional legacy en Node.js 9 y MySQL",
+      en: "Corrective support, operational maintenance, and stabilization of a legacy transactional system on Node.js 9 & MySQL",
+    },
+    myRole: {
+      es: "Ingeniero de Soporte & Mantenimiento de Sistemas Legacy",
+      en: "Legacy Systems Support & Maintenance Engineer",
+    },
+    challenge: {
+      es: "Asegurar la continuidad operativa de la plataforma de lealtad 'Club VIP' de Motozone, implementada sobre un entorno heredado de Node.js 9 y un servidor Ubuntu con dependencias deprecadas. El portal atiende a una red masiva de distribuidores, vendedores y mecánicos para la redención de premios, requiriendo intervención técnica ágil para resolver incidencias en canje de puntos, cierres de sesión inesperados y fallos en la emisión de comprobantes transaccionales por correo sin posibilidad de refactorización estructural.",
+      en: "Ensuring uninterrupted operational uptime for Motozone's 'Club VIP' rewards portal, running on a legacy Node.js 9 runtime and an older Ubuntu server with frozen dependencies. Serving a large network of distributors, sellers, and mechanics for reward redemptions, the platform required agile technical diagnosis to resolve point exchange drops, unexpected session timeouts, and transactional email dispatch failures without the option of full architectural rewrites.",
+    },
+    solution: {
+      es: "Brindé soporte correctivo y evolutivo continuo directamente en producción. Depuré cuellos de botella en la persistencia de sesiones de express-session, optimicé consultas SQL directas para el cálculo dinámico de saldos e historial de puntos en MySQL, estabilicé la sincronización de usuarios y productos del catálogo, y corregí fallos en el módulo administrativo de transacciones y notificaciones automáticas por correo con Nodemailer, garantizando alta disponibilidad del portal.",
+      en: "Delivered continuous corrective and evolutionary maintenance directly in production. Troubleshot memory leaks in express-session persistence, tuned raw MySQL queries for dynamic points ledger calculation, stabilized user and catalog product synchronization, and repaired transactional email triggers within the administrative module using Nodemailer, sustaining high availability.",
+    },
+    description: {
+      es: "Plataforma web transaccional de incentivos comerciales y fidelización para Motozone. Permite a clientes, talleres y mecánicos acumular puntos por compras mayoristas, consultar catálogos de recompensas y tramitar redenciones en tiempo real, complementado con un panel de administración para control de transacciones y usuarios.",
+      en: "Transactional web rewards and commercial loyalty platform for Motozone. Enables enterprise clients, repair shops, and mechanics to earn points on wholesale purchases, browse reward catalogs, and process live redemptions, supported by an administrative backoffice for transaction ledger auditing and user management.",
+    },
+    architecture: {
+      es: "Arquitectura monolítica MVC clásica: Runtime Node.js 9, servidor Express.js con motor de plantillas EJS, gestión de sesiones con express-session, base de datos relacional MySQL y orquestación de procesos en servidor Ubuntu Linux.",
+      en: "Classic MVC monolith: Node.js 9 runtime, Express.js server with EJS template engine, session management via express-session, relational MySQL database, and process management on legacy Ubuntu Linux server.",
+    },
+    media: {
+      type: "image",
+      url: "/imgs/me-hero.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "Portal de Fidelización Motozone ClubVIP",
+      aspectRatio: "16/9",
+    },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/motozone-clubvip-portal.png",
+        alt: "Portal de Canje de Puntos Motozone ClubVIP",
+      },
+      */
+    ],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "JavaScript",
+      "Linux",
+    ],
+    highlights: {
+      es: [
+        "Soporte técnico continuo y atención de incidencias críticas en producción bajo entorno legacy Node.js 9.",
+        "Mantenimiento y depuración del flujo transaccional de redención de premios, saldo de puntos y catálogo.",
+        "Optimización de consultas a la base de datos MySQL y prevención de caídas de sesiones de usuario.",
+        "Ajustes operativos y soporte al panel administrativo de auditoría de transacciones y usuarios.",
+        "Supervisión y mantenimiento de servicios en servidor físico Ubuntu Linux garantizando estabilidad continua.",
+      ],
+      en: [
+        "Continuous technical support and critical incident resolution in production under legacy Node.js 9 runtime.",
+        "Maintenance and debugging of the transactional point redemption flow, balance ledger, and reward catalog.",
+        "MySQL query performance tuning and elimination of user session drops in express-session.",
+        "Operational adjustments and technical support for the administrative transaction and user audit panel.",
+        "Process supervision and maintenance on Ubuntu Linux production servers ensuring uninterrupted stability.",
+      ],
+    },
+    metrics: [
+      { label: "Runtime", value: "Node.js 9" },
       { label: "Servidor", value: "Ubuntu Linux" },
       { label: "Disponibilidad", value: "99.9% Uptime" },
     ],
