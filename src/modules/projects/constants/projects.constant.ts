@@ -334,9 +334,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     media: {
       type: "image",
-      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
-      alt: "Motor ETL & Sincronización ERP Atmopel",
+      url: "https://storage.clodix.com.co/portfolio/etl/diagram.jpg",
+      alt: "Diagrama de Arquitectura Motor ETL & Sincronización ERP Atmopel",
       aspectRatio: "16/9",
+      fit: "contain",
     },
     // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
     gallery: [
@@ -507,9 +508,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     media: {
       type: "image",
-      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
-      alt: "API de Procesamiento de Pedidos Pedbox (Kurapika)",
+      url: "https://storage.clodix.com.co/portfolio/pedbox-orders-api/diagram.jpg",
+      alt: "Diagrama de Arquitectura API de Procesamiento de Pedidos Pedbox",
       aspectRatio: "16/9",
+      fit: "contain",
     },
     // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
     gallery: [
@@ -601,9 +603,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     media: {
       type: "image",
-      url: "/imgs/project-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
-      alt: "API de Sincronización de Datos Maestros Pedbox (Bakugo)",
+      url: "https://storage.clodix.com.co/portfolio/pedbox-data-sync/diagram.jpg",
+      alt: "Diagrama de Arquitectura API Sincronización de Datos Maestros Pedbox",
       aspectRatio: "16/9",
+      fit: "contain",
     },
     // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
     gallery: [
@@ -656,88 +659,90 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
-    id: "motozone-clubvip-loyalty",
+    id: "reservify-restaurant-platform",
     category: "fullstack",
     isFeatured: false,
-    year: "2023 – 2024",
+    year: "2024",
     status: {
       es: "En Producción",
       en: "In Production",
     },
     title: {
-      es: "Portal de Fidelización & Club VIP Motozone",
-      en: "Motozone Club VIP Loyalty & Rewards Portal",
+      es: "Reservify: Sistema de Reservas para Restaurantes",
+      en: "Reservify: Restaurant Booking & Seating Platform",
     },
     tagline: {
-      es: "Soporte correctivo, mantenimiento operativo y estabilización de sistema transaccional legacy en Node.js 9 y MySQL",
-      en: "Corrective support, operational maintenance, and stabilization of a legacy transactional system on Node.js 9 & MySQL",
+      es: "Arquitectura Full Stack con API asíncrona en Python FastAPI, frontend reactivo en React y control de turnos",
+      en: "Full Stack architecture featuring async Python FastAPI, reactive React UI, and end-to-end table management",
     },
     myRole: {
-      es: "Ingeniero de Soporte & Mantenimiento de Sistemas Legacy",
-      en: "Legacy Systems Support & Maintenance Engineer",
+      es: "Desarrollador Full Stack & Diseñador de API",
+      en: "Full Stack Developer & API Designer",
     },
     challenge: {
-      es: "Asegurar la continuidad operativa de la plataforma de lealtad 'Club VIP' de Motozone, implementada sobre un entorno heredado de Node.js 9 y un servidor Ubuntu con dependencias deprecadas. El portal atiende a una red masiva de distribuidores, vendedores y mecánicos para la redención de premios, requiriendo intervención técnica ágil para resolver incidencias en canje de puntos, cierres de sesión inesperados y fallos en la emisión de comprobantes transaccionales por correo sin posibilidad de refactorización estructural.",
-      en: "Ensuring uninterrupted operational uptime for Motozone's 'Club VIP' rewards portal, running on a legacy Node.js 9 runtime and an older Ubuntu server with frozen dependencies. Serving a large network of distributors, sellers, and mechanics for reward redemptions, the platform required agile technical diagnosis to resolve point exchange drops, unexpected session timeouts, and transactional email dispatch failures without the option of full architectural rewrites.",
+      es: "Eliminar la fricción operativa y errores de sobreventa en restaurantes que administraban sus mesas y horarios de forma manual, provocando cancelaciones sin previo aviso, cuellos de botella en horas pico y nula visibilidad de ocupación en tiempo real.",
+      en: "Eliminating operational friction and overbooking errors for restaurants managing tables and shifts manually, causing unannounced cancellations, peak-hour bottlenecks, and zero live occupancy visibility.",
     },
     solution: {
-      es: "Brindé soporte correctivo y evolutivo continuo directamente en producción. Depuré cuellos de botella en la persistencia de sesiones de express-session, optimicé consultas SQL directas para el cálculo dinámico de saldos e historial de puntos en MySQL, estabilicé la sincronización de usuarios y productos del catálogo, y corregí fallos en el módulo administrativo de transacciones y notificaciones automáticas por correo con Nodemailer, garantizando alta disponibilidad del portal.",
-      en: "Delivered continuous corrective and evolutionary maintenance directly in production. Troubleshot memory leaks in express-session persistence, tuned raw MySQL queries for dynamic points ledger calculation, stabilized user and catalog product synchronization, and repaired transactional email triggers within the administrative module using Nodemailer, sustaining high availability.",
+      es: "Diseñé y construí Reservify de extremo a extremo: una API asíncrona en Python con FastAPI y Pydantic para validación estricta de datos y consultas concurrentes sobre MySQL. Desarrollé una interfaz cliente SPA intuitiva y accesible en React con Tailwind CSS para reservas en 3 pasos, junto a un panel administrativo con bloqueo de turnos, gestión de disponibilidad y auditoría de solicitudes, todo empaquetado bajo Docker.",
+      en: "Engineered Reservify end-to-end: a high-throughput async Python API with FastAPI and Pydantic for rigid validation and concurrent MySQL operations. Built an intuitive SPA in React with Tailwind CSS for seamless 3-step reservations, paired with an administrative backoffice for shift locks, table capacity control, and request auditing, containerized with Docker.",
     },
     description: {
-      es: "Plataforma web transaccional de incentivos comerciales y fidelización para Motozone. Permite a clientes, talleres y mecánicos acumular puntos por compras mayoristas, consultar catálogos de recompensas y tramitar redenciones en tiempo real, complementado con un panel de administración para control de transacciones y usuarios.",
-      en: "Transactional web rewards and commercial loyalty platform for Motozone. Enables enterprise clients, repair shops, and mechanics to earn points on wholesale purchases, browse reward catalogs, and process live redemptions, supported by an administrative backoffice for transaction ledger auditing and user management.",
+      es: "Plataforma web integral de reservas en línea diseñada para el sector gastronómico. Permite a los comensales agendar mesas en segundos y a los administradores gestionar horarios, capacidad de salas, historial de clientes y estados de servicio desde un panel intuitivo y responsivo.",
+      en: "Comprehensive online reservation platform built for the culinary industry. Enables guests to book tables in seconds while empowering restaurant managers to control operating hours, room capacity, customer histories, and seating status from an intuitive responsive dashboard.",
     },
     architecture: {
-      es: "Arquitectura monolítica MVC clásica: Runtime Node.js 9, servidor Express.js con motor de plantillas EJS, gestión de sesiones con express-session, base de datos relacional MySQL y orquestación de procesos en servidor Ubuntu Linux.",
-      en: "Classic MVC monolith: Node.js 9 runtime, Express.js server with EJS template engine, session management via express-session, relational MySQL database, and process management on legacy Ubuntu Linux server.",
+      es: "API REST asíncrona en Python + FastAPI; Validación de esquemas con Pydantic; Base de datos relacional MySQL; Frontend SPA con React y Tailwind CSS; Contenedorización con Docker y despliegue en Vercel.",
+      en: "Async REST API with Python + FastAPI; Schema validation via Pydantic; Relational MySQL database; SPA Frontend with React & Tailwind CSS; Containerization with Docker and deployment on Vercel.",
     },
     media: {
       type: "image",
-      url: "/imgs/me-hero.png", // Imagen preview principal de la card (o pega tu URL de S3)
-      alt: "Portal de Fidelización Motozone ClubVIP",
+      url: "https://raw.githubusercontent.com/CardonaAndres/Portfolio/master/public/assets/imgs/projects/main/reservify/ReservifyIMG.webp",
+      alt: "Reservify: Sistema de Reservas para Restaurantes",
       aspectRatio: "16/9",
+      fit: "contain",
     },
     // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
     gallery: [
       /*
       {
         type: "image",
-        url: "https://tu-bucket.s3.amazonaws.com/imgs/motozone-clubvip-portal.png",
-        alt: "Portal de Canje de Puntos Motozone ClubVIP",
+        url: "https://storage.clodix.com.co/portfolio/reservify/dashboard.png",
+        alt: "Panel Administrativo de Reservas y Turnos",
       },
       */
     ],
     technologies: [
-      "Node.js",
-      "Express",
+      "Python",
+      "FastAPI",
+      "React",
+      "Tailwind",
       "MySQL",
-      "JavaScript",
-      "Linux",
+      "Docker",
     ],
     highlights: {
       es: [
-        "Soporte técnico continuo y atención de incidencias críticas en producción bajo entorno legacy Node.js 9.",
-        "Mantenimiento y depuración del flujo transaccional de redención de premios, saldo de puntos y catálogo.",
-        "Optimización de consultas a la base de datos MySQL y prevención de caídas de sesiones de usuario.",
-        "Ajustes operativos y soporte al panel administrativo de auditoría de transacciones y usuarios.",
-        "Supervisión y mantenimiento de servicios en servidor físico Ubuntu Linux garantizando estabilidad continua.",
+        "Diseño y desarrollo end-to-end de API asíncrona de alto rendimiento con Python y FastAPI.",
+        "Interfaz de usuario reactiva en React y Tailwind CSS con flujo de reserva sin fricción en 3 pasos.",
+        "Panel administrativo con control de horarios, bloqueo de turnos y métricas de ocupación en tiempo real.",
+        "Validación tipada de esquemas y serialización con Pydantic y base de datos relacional MySQL.",
+        "Infraestructura contenerizada con Docker y despliegue continuo en Vercel.",
       ],
       en: [
-        "Continuous technical support and critical incident resolution in production under legacy Node.js 9 runtime.",
-        "Maintenance and debugging of the transactional point redemption flow, balance ledger, and reward catalog.",
-        "MySQL query performance tuning and elimination of user session drops in express-session.",
-        "Operational adjustments and technical support for the administrative transaction and user audit panel.",
-        "Process supervision and maintenance on Ubuntu Linux production servers ensuring uninterrupted stability.",
+        "End-to-end design and delivery of a high-performance async API in Python powered by FastAPI.",
+        "Reactive UI in React & Tailwind CSS featuring a frictionless 3-step customer reservation flow.",
+        "Administrative backoffice with shift schedules, table lockouts, and live occupancy metrics.",
+        "Rigid data validation and schema serialization with Pydantic and relational MySQL.",
+        "Containerized infrastructure with Docker and continuous automated deployment on Vercel.",
       ],
     },
     metrics: [
-      { label: "Runtime", value: "Node.js 9" },
-      { label: "Servidor", value: "Ubuntu Linux" },
-      { label: "Disponibilidad", value: "99.9% Uptime" },
+      { label: "API Core", value: "FastAPI (Py)" },
+      { label: "Frontend", value: "React SPA" },
+      { label: "Contenedor", value: "Docker" },
     ],
     links: {
-      // Repositorio y accesos privados corporativos
+      github: "https://github.com/CardonaAndres/Server-Reservify",
     },
   },
 ];

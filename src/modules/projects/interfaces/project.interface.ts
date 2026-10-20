@@ -10,6 +10,7 @@ export interface ProjectMedia {
   poster?: string;
   alt: string;
   aspectRatio?: "16/9" | "4/3" | "square";
+  fit?: "cover" | "contain";
 }
 
 export interface ProjectMetric {

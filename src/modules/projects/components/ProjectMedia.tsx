@@ -87,14 +87,18 @@ export const ProjectMedia = ({ media, className = "", isFeatured = false }: Proj
           </div>
         </div>
       ) : (
-        <div className="relative w-full h-full group/image overflow-hidden">
+        <div className="relative w-full h-full group/image overflow-hidden bg-slate-950/80 flex items-center justify-center">
           {!imageError ? (
             <Image
               src={media.url}
               alt={media.alt}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover object-top transition-transform duration-500 group-hover/image:scale-105 select-none"
+              className={
+                media.fit === "contain"
+                  ? "object-contain p-1 select-none transition-transform duration-500 group-hover/image:scale-[1.02]"
+                  : "object-cover object-top select-none transition-transform duration-500 group-hover/image:scale-105"
+              }
               onError={() => setImageError(true)}
             />
           ) : (
@@ -105,14 +109,10 @@ export const ProjectMedia = ({ media, className = "", isFeatured = false }: Proj
             </div>
           )}
 
-          {/* Overlay de gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-          {/* Badge superior indicando que es Imagen / Preview */}
-          <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/85 backdrop-blur-md border border-white/10 text-white font-mono text-[10.5px]">
-            <ImageIcon className="w-3 h-3 text-blue-400" />
-            <span>Vista Previa</span>
-          </div>
+          {/* Overlay sutil solo si es cover */}
+          {media.fit !== "contain" && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          )}
         </div>
       )}
     </div>

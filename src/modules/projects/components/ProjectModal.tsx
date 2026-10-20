@@ -27,10 +27,11 @@ export const ProjectModal = ({ project, onClose, locale }: ProjectModalProps) =>
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [imageError, setImageError] = useState(false);
 
-  // Unificamos la media principal y las fotos/videos de la galería
-  const allMedia: ProjectMedia[] = project
-    ? [project.media, ...(project.gallery || [])]
-    : [];
+  // Unificamos la media principal y las fotos/videos de la galería (sin duplicados)
+  const rawMedia = project ? [project.media, ...(project.gallery || [])] : [];
+  const allMedia: ProjectMedia[] = rawMedia.filter(
+    (item, index, self) => index === self.findIndex((t) => t.url === item.url)
+  );
 
   const currentMedia: ProjectMedia | undefined = allMedia[activeMediaIndex] ?? project?.media;
 
