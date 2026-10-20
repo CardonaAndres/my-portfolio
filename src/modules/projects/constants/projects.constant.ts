@@ -13,6 +13,242 @@ export const PROJECT_CATEGORIES: {
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
+    id: "newstetic-sst-microservices",
+    category: "fullstack",
+    isFeatured: true,
+    year: "2024",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "New Stetic SST: Plataforma SG-SST en Microservicios",
+      en: "New Stetic SST: Microservices OHS Platform",
+    },
+    tagline: {
+      es: "Gestión integral de Seguridad y Salud en el Trabajo con arquitectura de microservicios NestJS, React, SQL Server y Docker",
+      en: "Comprehensive Occupational Health and Safety management powered by NestJS microservices, React, SQL Server & Docker",
+    },
+    myRole: {
+      es: "Líder de Desarrollo Full Stack & Arquitectura",
+      en: "Lead Full Stack Developer & Architect",
+    },
+    challenge: {
+      es: "Transformar y unificar los procesos críticos de Seguridad y Salud en el Trabajo de New Stetic S.A., los cuales se manejaban mediante registros físicos y hojas de cálculo dispersas. Se requería digitalizar el seguimiento médico, la vigilancia epidemiológica y el control de EPPs bajo estrictas normativas legales colombianas con alta trazabilidad y seguridad de datos médicos sensibles.",
+      en: "Transforming and unifying critical Occupational Health and Safety workflows at New Stetic S.A., previously managed across physical logs and scattered spreadsheets. Demanded full digitization of medical follow-ups, epidemiological surveillance, and PPE control adhering strictly to Colombian regulatory standards with robust data security for sensitive health records.",
+    },
+    solution: {
+      es: "Diseñé e implementé una plataforma modular basada en microservicios con NestJS y TypeScript, comunicados de forma desacoplada y securizados con JWT. Desarrollé una interfaz cliente SPA ágil y responsiva en React con Tailwind CSS, orquesté la persistencia relacional en Microsoft SQL Server y parametricé contenedores Docker con Nginx como reverse proxy para despliegue continuo y alta disponibilidad.",
+      en: "Architected and deployed a modular microservices platform using NestJS and TypeScript, decoupled and secured via JWT authentication. Developed an agile, responsive React SPA with Tailwind CSS, orchestrated relational persistence in Microsoft SQL Server, and configured Docker containers with Nginx reverse proxy for continuous deployment and high availability.",
+    },
+    description: {
+      es: "Plataforma integral de gestión de Seguridad y Salud en el Trabajo (SG-SST) para New Stetic S.A. Digitaliza el ciclo completo de vigilancia médica, ausentismo laboral, gestión de inspecciones de seguridad, control ergonómico, matriz de EPPs e investigación de accidentalidad laboral, ofreciendo reportes gerenciales en tiempo real.",
+      en: "Comprehensive Occupational Health and Safety (SG-SST) platform for New Stetic S.A. Digitizes the full lifecycle of employee medical examinations, absenteeism tracking, workplace safety audits, ergonomic risk assessments, PPE inventory allocations, and occupational incident investigations with real-time analytics.",
+    },
+    architecture: {
+      es: "Ecosistema de microservicios modulares en NestJS + TypeScript; Autenticación centralizada JWT; Persistencia transaccional en Microsoft SQL Server; Frontend reactivo en React + Tailwind CSS; Reverse proxy Nginx y orquestación con Docker Compose.",
+      en: "Modular microservices ecosystem in NestJS + TypeScript; Centralized JWT authentication; Relational transactional persistence in Microsoft SQL Server; Reactive React + Tailwind CSS frontend; Nginx reverse proxy and Docker Compose orchestration.",
+    },
+    media: {
+      type: "image",
+      url: "https://raw.githubusercontent.com/CardonaAndres/Portfolio/master/public/assets/imgs/projects/main/SstNS/img1.webp",
+      alt: "New Stetic SST - Plataforma de Seguridad y Salud en el Trabajo",
+      aspectRatio: "16/9",
+      fit: "contain",
+    },
+    gallery: [],
+    technologies: [
+      "NestJS",
+      "React",
+      "TypeScript",
+      "SQL Server",
+      "Docker",
+      "Tailwind",
+    ],
+    highlights: {
+      es: [
+        "Arquitectura de microservicios en NestJS desacoplada y escalable para cada módulo de SST.",
+        "Módulos integrales: vigilancia epidemiológica, exámenes médicos de ingreso y seguimiento.",
+        "Control y asignación de Equipos de Protección Personal (EPP) y auditorías de ergonomía.",
+        "Gestión de accidentalidad, incidentes e higiene ocupacional conforme a la normativa legal.",
+        "Despliegue contenerizado con Docker Compose, Nginx y base de datos Microsoft SQL Server.",
+      ],
+      en: [
+        "Decoupled and scalable NestJS microservices architecture for each dedicated OHS module.",
+        "Comprehensive modules: epidemiological surveillance, onboarding medical checkups, and tracking.",
+        "Personal Protective Equipment (PPE) allocation tracking and ergonomic risk auditing.",
+        "Occupational incident management, accident investigation, and legal regulatory compliance.",
+        "Containerized deployment using Docker Compose, Nginx reverse proxy, and Microsoft SQL Server.",
+      ],
+    },
+    metrics: [
+      { label: "Arquitectura", value: "Microservicios" },
+      { label: "Seguridad", value: "JWT Auth" },
+      { label: "Database", value: "SQL Server" },
+    ],
+    links: {
+      live: "https://sst.newstetic.com",
+      github: "https://github.com/CardonaAndres/NewStetic-SST-CLIENT",
+    },
+  },
+  {
+    id: "newstetic-buyorder-microservices",
+    category: "fullstack",
+    isFeatured: true,
+    year: "2024",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "BuyOrder NS: Gestión de Órdenes de Compra",
+      en: "BuyOrder NS: Purchase Order Management",
+    },
+    tagline: {
+      es: "Sistema de gestión y seguimiento de órdenes de compra nacionales con microservicios NestJS, React, SQL Server y automatización logística",
+      en: "National purchase order tracking and management platform with NestJS microservices, React, SQL Server & logistics automation",
+    },
+    myRole: {
+      es: "Líder de Desarrollo Full Stack & Arquitectura",
+      en: "Lead Full Stack Developer & Architect",
+    },
+    challenge: {
+      es: "Centralizar el flujo y ciclo de vida de las Órdenes de Compra Nacionales (OCN) en New Stetic S.A., mitigando retrasos de entrega, falta de comunicación oportuna con proveedores externos e ineficiencias en la recepción física de mercancía en el almacén de planta.",
+      en: "Centralizing the lifecycle of National Purchase Orders (NPO) for New Stetic S.A., eliminating delivery bottlenecks, lack of proactive vendor communication, and manual friction during warehouse inventory check-ins.",
+    },
+    solution: {
+      es: "Arquitecté una solución desacoplada con microservicios en NestJS y TypeScript, conectada a Microsoft SQL Server y contenerizada con Docker. Implementé módulos de seguimiento automático con recordatorios programados a proveedores, un canal de comunicación directa para justificación de entregas, un módulo de recepción ágil para el almacén y un motor de calificación automatizada del cumplimiento de proveedores.",
+      en: "Architected a decoupled microservices platform with NestJS and TypeScript, integrated with Microsoft SQL Server and containerized via Docker. Engineered automated tracking with scheduled vendor reminders, a direct vendor communication channel for delivery updates, a warehouse check-in portal, and an automated supplier compliance rating engine.",
+    },
+    description: {
+      es: "Plataforma empresarial para la gestión integral de órdenes de compra nacionales en New Stetic S.A. Automatiza el seguimiento con proveedores mediante recordatorios programados, facilita el registro de recepción física de insumos en bodega con un clic y calcula métricas de cumplimiento y cartas de atraso de forma transparente.",
+      en: "Enterprise platform for end-to-end national purchase order management at New Stetic S.A. Automates vendor follow-ups with scheduled notifications, streamlines warehouse receipt logging per line item, and computes vendor compliance ratings with automated delay letters.",
+    },
+    architecture: {
+      es: "Microservicios desacoplados en NestJS + TypeScript; Autenticación centralizada JWT; Base de datos relacional Microsoft SQL Server; Frontend reactivo en React y Tailwind CSS; Docker Compose y Nginx.",
+      en: "Decoupled microservices in NestJS + TypeScript; Centralized JWT authentication; Microsoft SQL Server relational database; Reactive React & Tailwind CSS frontend; Docker Compose and Nginx.",
+    },
+    media: {
+      type: "image",
+      url: "https://raw.githubusercontent.com/CardonaAndres/Portfolio/master/public/assets/imgs/projects/main/BuyOrderNS/img1.webp",
+      alt: "BuyOrder NS - Gestión de Órdenes de Compra New Stetic",
+      aspectRatio: "16/9",
+      fit: "contain",
+    },
+    gallery: [],
+    technologies: [
+      "NestJS",
+      "React",
+      "TypeScript",
+      "SQL Server",
+      "Docker",
+      "Tailwind",
+    ],
+    highlights: {
+      es: [
+        "Arquitectura modular en microservicios NestJS garantizando alta escalabilidad e independencia.",
+        "Seguimiento automatizado de órdenes con envío periódico de recordatorios a proveedores.",
+        "Módulo de bodega para registro y validación física de recepción de mercancía por ítem.",
+        "Motor de calificación de proveedores basado en fechas pactadas y generación de cartas de atraso.",
+        "Despliegue contenerizado en Docker con reverse proxy Nginx y base de datos SQL Server.",
+      ],
+      en: [
+        "Modular NestJS microservices architecture ensuring independence and scalability.",
+        "Automated order tracking with scheduled email notifications sent to suppliers.",
+        "Warehouse intake portal for quick per-item physical product reception logging.",
+        "Supplier rating engine evaluating delivery timeliness and generating formal delay notices.",
+        "Containerized Docker deployment with Nginx reverse proxy and Microsoft SQL Server.",
+      ],
+    },
+    metrics: [
+      { label: "Seguimiento", value: "Automatizado" },
+      { label: "Arquitectura", value: "Microservicios" },
+      { label: "Database", value: "SQL Server" },
+    ],
+    links: {
+      live: "https://buyorder.newstetic.com",
+      github: "https://github.com/CardonaAndres/BuyOrder-NewStetic",
+    },
+  },
+  {
+    id: "factus-facturacion-electronica",
+    category: "fullstack",
+    isFeatured: true,
+    year: "2024",
+    status: {
+      es: "En Producción",
+      en: "In Production",
+    },
+    title: {
+      es: "Factus: Plataforma de Facturación Electrónica DIAN",
+      en: "Factus: DIAN Electronic Invoicing Platform",
+    },
+    tagline: {
+      es: "Generación, validación y timbrado de facturas electrónicas, notas crédito/débito y gestión de inventario conforme a la DIAN",
+      en: "Generation, validation, and signing of electronic invoices, credit/debit notes, and inventory compliant with DIAN",
+    },
+    myRole: {
+      es: "Desarrollador Backend & Integración DIAN",
+      en: "Backend Developer & DIAN Integration",
+    },
+    challenge: {
+      es: "Construir un motor transaccional robusto capaz de generar documentos tributarios electrónicos que cumplan al 100% con los estándares y esquemas XML/UBL exigidos por la DIAN en Colombia, gestionando firmas digitales, validación previa en tiempo real, emisión de notas crédito y débito, y sincronización de clientes y catálogos de inventario sin demoras ni rechazos fiscales.",
+      en: "Building a robust transactional engine capable of generating electronic tax documents in 100% compliance with XML/UBL schemas mandated by Colombia's DIAN tax authority, handling digital signatures, real-time pre-validation, credit and debit notes, and inventory synchronization with zero latency or fiscal rejections.",
+    },
+    solution: {
+      es: "Desarrollé la arquitectura backend en Node.js y Express con base de datos MySQL, implementando el pipeline de generación de facturas en formato XML estándar UBL 2.1 y renderizado de representaciones gráficas en PDF. Diseñé la lógica de emisión de notas crédito/débito, control de inventario en tiempo real, gestión multi-rol de usuarios y estructuré la contenerización con Docker para garantizar despliegues reproducibles y tolerantes a fallos.",
+      en: "Engineered the backend architecture in Node.js and Express with MySQL, implementing the invoice generation pipeline adhering to UBL 2.1 XML standards and graphical PDF representation rendering. Designed logic for credit/debit notes, live inventory control, multi-role user access, and structured containerization with Docker ensuring reproducible, fault-tolerant deployments.",
+    },
+    description: {
+      es: "Sistema integral de facturación electrónica para Colombia conforme a las exigencias de la DIAN. Permite a las empresas emitir facturas de venta, notas de crédito y débito validadas ante la entidad tributaria, administrar productos, listas de precios, clientes y proveedores, con descarga automática de archivos PDF/XML y reportes financieros.",
+      en: "Comprehensive electronic invoicing platform for Colombia compliant with DIAN regulations. Enables businesses to generate validated sales invoices, credit and debit notes, manage product catalogs, pricing tiers, clients, and suppliers, with automatic PDF/XML downloads and financial performance reporting.",
+    },
+    architecture: {
+      es: "Backend REST en Node.js y Express; Base de datos relacional MySQL; Generador de documentos XML/UBL 2.1 y PDFs tributarios; Frontend en React con Tailwind CSS; Contenedorización con Docker.",
+      en: "REST Backend in Node.js and Express; Relational MySQL database; XML/UBL 2.1 and tax PDF document generation engine; Frontend in React with Tailwind CSS; Containerization with Docker.",
+    },
+    media: {
+      type: "image",
+      url: "https://raw.githubusercontent.com/CardonaAndres/Portfolio/master/public/assets/imgs/projects/main/factus/FactusIMG.webp",
+      alt: "Factus - Plataforma de Facturación Electrónica DIAN",
+      aspectRatio: "16/9",
+      fit: "contain",
+    },
+    gallery: [],
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Docker",
+      "Tailwind",
+    ],
+    highlights: {
+      es: [
+        "Generación y timbrado de facturas electrónicas conformes a normativa DIAN (UBL 2.1).",
+        "Emisión y procesamiento automatizado de notas crédito y notas débito.",
+        "Generación instantánea de representaciones gráficas en PDF y descarga de XML firmado.",
+        "Control de inventario, catálogo de productos y gestión integral de clientes y proveedores.",
+        "Infraestructura contenerizada en Docker con soporte multi-rol y alta disponibilidad.",
+      ],
+      en: [
+        "Generation and electronic signing of tax invoices strictly compliant with DIAN (UBL 2.1).",
+        "Automated issuance and validation of credit and debit notes.",
+        "Instant tax PDF generation and signed XML file downloads.",
+        "Real-time inventory management, product catalogs, and client/supplier directory.",
+        "Containerized Docker infrastructure with multi-role access control and high availability.",
+      ],
+    },
+    metrics: [
+      { label: "Estándar", value: "DIAN UBL 2.1" },
+      { label: "Formatos", value: "XML & PDF" },
+      { label: "Backend", value: "Node + Express" },
+    ],
+    links: {
+      live: "https://www.factus.com.co/",
+    },
+  },
+  {
     id: "monitoring-system-observability",
     category: "cloud",
     isFeatured: true,
@@ -103,7 +339,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     metrics: [
       { label: "Servicios", value: "9 Contenedores" },
-      { label: "Alertas", value: "Email" },
+      { label: "Alertas", value: "Discord & Mail" },
       { label: "Tracing", value: "OTel + Tempo" },
     ],
     links: {
@@ -113,7 +349,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
   {
     id: "stackstore-s3-object-storage",
     category: "cloud",
-    isFeatured: true,
+    isFeatured: false,
     year: "2024 – 2025",
     status: {
       es: "En Producción",
@@ -195,7 +431,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       ],
     },
     metrics: [
-      { label: "Motor Core", value: "RustFS (Rust)" },
+      { label: "Motor Core", value: "RustFS" },
       { label: "Protocolo", value: "AWS S3 / SigV4" },
       { label: "Seguridad", value: "IAM Multi-Tenant" },
     ],
@@ -385,88 +621,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     ],
     links: {
       // Repositorio y endpoints privados empresariales
-    },
-  },
-  {
-    id: "igb-calidosos-loyalty",
-    category: "fullstack",
-    isFeatured: false,
-    year: "2023 – 2024",
-    status: {
-      es: "En Producción",
-      en: "In Production",
-    },
-    title: {
-      es: "Portal de Fidelización & Recompensas IGB (Calidosos)",
-      en: "IGB Calidosos Loyalty & Rewards Platform",
-    },
-    tagline: {
-      es: "Estabilización y soporte operativo de sistema transaccional legacy sobre Node.js 9 y servidor Ubuntu antiguo",
-      en: "Operational stabilization and maintenance for legacy transactional system on Node.js 9 & legacy Ubuntu",
-    },
-    myRole: {
-      es: "Ingeniero de Soporte & Mantenimiento de Sistemas Legacy",
-      en: "Legacy Systems Support & Maintenance Engineer",
-    },
-    challenge: {
-      es: "Garantizar la disponibilidad 24/7 de un portal corporativo de fidelización y redención de puntos montado sobre una arquitectura legacy de Node.js 9 y un servidor físico Ubuntu con sistema operativo antiguo. El reto principal fue atender incidencias críticas, fallos de sesión y bloqueos en producción sin opción de reescribir la plataforma, operando bajo dependencias deprecadas y restricciones severas de compatibilidad.",
-      en: "Ensuring 24/7 availability for an active corporate loyalty & points redemption portal built on legacy Node.js 9 and hosted on an aged Ubuntu server. The primary challenge was diagnosing critical production incidents, session drops, and bottlenecks without full rewrites, maneuvering through deprecated packages and rigid infrastructure constraints.",
-    },
-    solution: {
-      es: "Lideré el soporte y mantenimiento correctivo continuo, diagnosticando y solventando fallos críticos en producción sin interrumpir el servicio comercial. Optimicé consultas directas a MySQL para acelerar la carga de catálogos y balances de puntos, estabilicé el manejo de sesiones en Express y administré la persistencia y supervisión de procesos directamente sobre el servidor Ubuntu.",
-      en: "Delivered continuous corrective maintenance, isolating and resolving critical production bugs without interrupting commercial operations. Optimized raw MySQL queries to speed up catalog and balance lookups, stabilized Express session lifecycles, and managed process supervision directly on the legacy Ubuntu server.",
-    },
-    description: {
-      es: "Mantenimiento operativo y soporte continuo para la plataforma de fidelización 'Calidosos' de IGB (programa de incentivos y catálogo de redención para distribuidores y vendedores de repuestos de motocicletas). Operación técnica sobre una base de código monolítica en Node.js 9, vistas EJS y base de datos MySQL en servidor Linux Ubuntu heredado.",
-      en: "Operational maintenance and ongoing support for IGB's 'Calidosos' loyalty platform (rewards and points redemption program for motorcycle parts distributors and sales reps). Technical maintenance over a legacy monolithic codebase built on Node.js 9, EJS views, and MySQL on an older Ubuntu Linux server.",
-    },
-    architecture: {
-      es: "Monolito MVC clásico: Runtime Node.js 9, servidor Express.js con motor de plantillas EJS, gestión de sesiones con express-session, base de datos relacional MySQL y orquestación de procesos en servidor Ubuntu Linux.",
-      en: "Classic MVC monolith: Node.js 9 runtime, Express.js server with EJS template engine, session management via express-session, relational MySQL database, and process management on legacy Ubuntu Linux server.",
-    },
-    media: {
-      type: "image",
-      url: "/imgs/me-hero.png", // Imagen preview principal de la card (o pega tu URL de S3)
-      alt: "Portal de Fidelización IGB Calidosos",
-      aspectRatio: "16/9",
-    },
-    gallery: [
-      /*
-      {
-        type: "image",
-        url: "https://tu-bucket.s3.amazonaws.com/imgs/calidosos-portal.png",
-        alt: "Portal de Clientes Calidosos",
-      },
-      */
-    ],
-    technologies: [
-      "Node.js",
-      "Express",
-      "MySQL",
-      "JavaScript",
-      "Linux",
-    ],
-    highlights: {
-      es: [
-        "Soporte técnico continuo y resolución de fallos críticos en producción bajo entorno legacy Node.js 9.",
-        "Depuración y corrección de incidencias en flujos de redención de puntos, catálogo y sesiones de usuario.",
-        "Optimización de consultas SQL y estabilización de conexiones contra base de datos MySQL.",
-        "Mantenimiento y supervisión de procesos en servidor Ubuntu Linux legacy garantizando cero caídas del portal.",
-      ],
-      en: [
-        "Continuous technical support and critical bug resolution in production under legacy Node.js 9 environment.",
-        "Debugging and troubleshooting points redemption workflows, catalog queries, and user session drops.",
-        "SQL query optimization and connection pool stabilization against MySQL database.",
-        "Process supervision and maintenance on legacy Ubuntu Linux server guaranteeing zero downtime.",
-      ],
-    },
-    metrics: [
-      { label: "Runtime", value: "Node.js 9" },
-      { label: "Servidor", value: "Ubuntu Linux" },
-      { label: "Disponibilidad", value: "99.9% Uptime" },
-    ],
-    links: {
-      // Repositorio y accesos privados corporativos
     },
   },
   {
