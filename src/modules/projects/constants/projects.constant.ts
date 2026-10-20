@@ -111,63 +111,96 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
   },
   {
-    id: "ai-rag-knowledge-assistant",
-    category: "ai",
+    id: "stackstore-s3-object-storage",
+    category: "cloud",
     isFeatured: true,
-    year: "2025",
+    year: "2024 – 2025",
     status: {
-      es: "Caso de Estudio",
-      en: "Case Study",
+      es: "En Producción",
+      en: "In Production",
     },
     title: {
-      es: "Motor RAG & Agente Autónomo para Documentación",
-      en: "RAG Engine & Autonomous Documentation Agent",
+      es: "StackStore: Almacenamiento de Objetos S3 en Rust",
+      en: "StackStore: Multi-Tenant S3 Object Storage in Rust",
     },
     tagline: {
-      es: "Búsqueda semántica con embeddings vectoriales, flujos RAG y agentes autónomos para análisis técnico",
-      en: "Semantic search with vector embeddings, RAG pipelines, and autonomous agents for technical analysis",
+      es: "Infraestructura de almacenamiento compatible con Amazon S3 centralizada en RustFS, TLS automático con Caddy y aislamiento IAM multi-tenant",
+      en: "Centralized Amazon S3-compatible object storage infrastructure powered by RustFS, automated Caddy TLS, and multi-tenant IAM isolation",
+    },
+    myRole: {
+      es: "Arquitectura de Sistemas, Infraestructura & DevOps",
+      en: "Systems Architecture, Infrastructure & DevOps",
+    },
+    challenge: {
+      es: "Eliminar la redundancia operativa y el desperdicio de memoria en servidores donde múltiples aplicaciones y contenedores (como el e-commerce B2C) desplegaban sus propias instancias locales de almacenamiento. Este esquema provocaba colisiones de puertos (puerto 9000), gestión fragmentada de volúmenes en disco y riesgos de seguridad por falta de políticas de acceso aisladas.",
+      en: "Eliminating operational redundancy and memory waste across servers where multiple applications and containers (such as the B2C e-commerce) spun up isolated, ad-hoc storage instances. This led to network port conflicts (port 9000), fragmented disk volume management, and heightened security risks due to unsegmented access credentials.",
+    },
+    solution: {
+      es: "Diseñé e implementé StackStore: una plataforma centralizada de almacenamiento de objetos a nivel de servidor basada en RustFS (motor de alto rendimiento en Rust con bajo consumo de memoria y concurrencia asíncrona). Implementé una arquitectura multi-inquilino con buckets dedicados y credenciales IAM de mínimos privilegios por proyecto, orquestación en Docker Compose con comprobación de salud activa (HEALTHCHECK en /health), comunicación inter-contenedor de ultra baja latencia por red bridge interna ('stack-store-net') y proxy Caddy con terminación TLS automática (Let's Encrypt / ACME), streaming de subidas sin buffering hasta 5GB y validación estricta de firmas SigV4.",
+      en: "Engineered and deployed StackStore: a centralized server-level object storage platform built on RustFS (a high-performance, low-memory, asynchronous Rust storage engine). Architected a multi-tenant layout with isolated buckets and least-privilege project-scoped IAM credentials, Docker Compose orchestration with active HEALTHCHECK on /health, ultra-low-latency inter-container routing via a dedicated bridge network ('stack-store-net'), and Caddy reverse proxy with automated Let's Encrypt TLS, unbuffered upload streaming up to 5GB, and strict AWS SigV4 cryptographic signature compliance.",
     },
     description: {
-      es: "Asistente inteligente con arquitectura RAG avanzada (Retrieval-Augmented Generation) que indexa bases de conocimiento corporativas, genera respuestas contextualizadas con citas de fuentes y ejecuta flujos de automatización mediante agentes.",
-      en: "Intelligent assistant featuring an advanced RAG architecture indexing corporate knowledge bases, generating context-rich responses with verifiable citations, and executing autonomous agent automation workflows.",
+      es: "Solución de almacenamiento de objetos compatible con AWS S3 diseñada para dar servicio unificado a todos los proyectos y microservicios del servidor. Combina la velocidad y seguridad de memoria de Rust con la facilidad de administración web en el puerto 9001 y compatibilidad transparente con SDKs de AWS S3 (@aws-sdk/client-s3, boto3, minio-go) mediante direccionamiento path-style.",
+      en: "Turnkey Amazon S3-compatible object storage solution engineered to serve all applications and microservices running on the server. Leverages Rust's speed and memory safety alongside an intuitive web admin console on port 9001 and transparent integration with standard AWS S3 SDKs (@aws-sdk/client-s3, boto3, minio-go) via path-style routing.",
     },
     architecture: {
-      es: "Pipeline de ingestión con LangChain/LlamaIndex, pgvector para base de datos vectorial y modelos LLM con streaming reactivo.",
-      en: "Ingestion pipeline with LangChain/LlamaIndex, pgvector for vector store, and LLM streaming integration.",
+      es: "Servicio core RustFS (API S3 :9000, Consola :9001) con imagen Docker personalizada y healthcheck; Proxy Caddy con TLS Let's Encrypt y bypass de buffering; Enlace de red interna 'stack-store-net'; Persistencia en volúmenes Docker (data, logs, certs).",
+      en: "Core RustFS service (S3 API :9000, Web Console :9001) with custom Dockerfile healthcheck; Caddy proxy with Let's Encrypt TLS and unbuffered streaming; Dedicated 'stack-store-net' bridge; Persistent Docker volumes (data, logs, certs).",
     },
     media: {
       type: "image",
-      url: "/imgs/stack-img.png",
-      alt: "Motor RAG & Agente Autónomo",
+      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "StackStore: Almacenamiento de Objetos S3 en Rust",
       aspectRatio: "16/9",
     },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/stackstore-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/stackstore-poster.png",
+        alt: "Demostración de Consola Web y Subida de Objetos",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/stackstore-console.png",
+        alt: "Consola de Administración de Buckets y Políticas IAM",
+      },
+      */
+    ],
     technologies: [
-      "Python",
-      "FastAPI",
-      "TypeScript",
-      "React",
-      "PostgreSQL",
+      "Rust",
       "Docker",
+      "Caddy",
+      "Linux",
+      "Git",
     ],
     highlights: {
       es: [
-        "Indexación vectorial optimizada con embeddings semánticos y re-ranking.",
-        "Agentes autónomos con llamadas a herramientas (function calling) y validaciones.",
-        "Interfaz interactiva con streaming de respuestas en tiempo real.",
+        "Unificación de almacenamiento a nivel de servidor: un solo engine para todos los proyectos eliminando instancias duplicadas.",
+        "Motor RustFS de alto rendimiento en Rust con bajísima latencia y mínima huella de memoria RAM.",
+        "Aislamiento multi-tenant estricto con políticas IAM y llaves independientes por proyecto (cero exposición de llaves root).",
+        "Compatibilidad nativa con AWS S3 SDK (@aws-sdk/client-s3, boto3) sin necesidad de modificar código aplicativo.",
+        "Proxy inverso Caddy con terminación TLS automática, renovación Let's Encrypt y soporte para subidas pesadas sin buffering.",
+        "Red bridge Docker dedicada para transferencia interna de alta velocidad y documentación exhaustiva de recetas de proxy.",
       ],
       en: [
-        "Optimized vector indexing with semantic embeddings and re-ranking pipelines.",
-        "Autonomous agents with tool calling, schema validation, and guardrails.",
-        "Interactive UI featuring real-time token streaming.",
+        "Server-level storage consolidation: single engine serving all hosted projects, eradicating duplicate instances.",
+        "High-performance RustFS engine in Rust delivering microsecond response times with minimal memory footprint.",
+        "Strict multi-tenant isolation with granular IAM policies and project-scoped keys (zero root credential exposure).",
+        "Native drop-in AWS S3 SDK compatibility (@aws-sdk/client-s3, boto3) requiring zero changes to application code.",
+        "Caddy reverse proxy with automated TLS termination, Let's Encrypt renewals, and unbuffered streaming for heavy uploads.",
+        "Dedicated internal Docker bridge network for high-speed local data transfer and exhaustive deployment guides.",
       ],
     },
     metrics: [
-      { label: "Latencia Búsqueda", value: "< 120ms" },
-      { label: "Precisión RAG", value: "96.4%" },
-      { label: "Tokens", value: "Streaming Activo" },
+      { label: "Motor Core", value: "RustFS (Rust)" },
+      { label: "Protocolo", value: "AWS S3 / SigV4" },
+      { label: "Seguridad", value: "IAM Multi-Tenant" },
     ],
     links: {
-      github: "https://github.com/AndresCardona10",
+      github: "https://github.com/CardonaAndres/StackStore",
     },
   },
   {

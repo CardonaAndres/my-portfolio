@@ -38,3 +38,5 @@ export { GitIcon } from "@/core/components/icons/tech/GitIcon";
 export { GithubIcon } from "@/core/components/icons/tech/GithubIcon";
 export { LinkedinIcon } from "@/core/components/icons/tech/LinkedinIcon";
 export { TraefikIcon } from "@/core/components/icons/tech/TraefikIcon";
+export { RustIcon } from "@/core/components/icons/tech/RustIcon";
+export { CaddyIcon } from "@/core/components/icons/tech/CaddyIcon";

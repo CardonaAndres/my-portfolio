@@ -38,4 +38,6 @@ export type TechIconName =
   | "linux"
   | "git"
   | "github"
-  | "traefik";
+  | "traefik"
+  | "rust"
+  | "caddy";

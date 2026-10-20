@@ -39,6 +39,8 @@ import { LinuxIcon } from "@/core/components/icons/tech/LinuxIcon";
 import { GitIcon } from "@/core/components/icons/tech/GitIcon";
 import { GithubIcon } from "@/core/components/icons/tech/GithubIcon";
 import { TraefikIcon } from "@/core/components/icons/tech/TraefikIcon";
+import { RustIcon } from "@/core/components/icons/tech/RustIcon";
+import { CaddyIcon } from "@/core/components/icons/tech/CaddyIcon";
 
 interface TechIconProps extends IconProps {
   name: TechIconName | string;
@@ -96,6 +98,10 @@ const TECH_ICON_MAP: Record<string, ComponentType<IconProps>> = {
   git: GitIcon,
   github: GithubIcon,
   traefik: TraefikIcon,
+  rust: RustIcon,
+  rustfs: RustIcon,
+  caddy: CaddyIcon,
+  caddyserver: CaddyIcon,
 };
 
 export const TechIcon = ({ name, className = "w-5 h-5", size = 20 }: TechIconProps) => {
