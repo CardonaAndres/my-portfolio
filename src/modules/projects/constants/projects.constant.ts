@@ -13,67 +13,101 @@ export const PROJECT_CATEGORIES: {
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
-    id: "ecommerce-multitenant-platform",
-    category: "fullstack",
+    id: "monitoring-system-observability",
+    category: "cloud",
     isFeatured: true,
-    year: "2025",
+    year: "2024 – 2025",
     status: {
       es: "En Producción",
       en: "In Production",
     },
     title: {
-      es: "Plataforma E-commerce B2C Multi-Tenant",
-      en: "Multi-Tenant B2C E-commerce Platform",
+      es: "Stack de Observabilidad & Telemetría Distribuida",
+      en: "Distributed Observability & Telemetry Stack",
     },
     tagline: {
-      es: "Arquitectura escalable de alto rendimiento con despliegue blue-green y aislamiento de datos por tenant",
-      en: "High-throughput scalable architecture with blue-green deployments and per-tenant data isolation",
+      es: "Infraestructura centralizada de métricas, logs, trazas y alertas multi-tenant con Grafana, Prometheus, Loki y OTel",
+      en: "Centralized multi-tenant metrics, logs, traces, and alerting infrastructure with Grafana, Prometheus, Loki & OTel",
+    },
+    myRole: {
+      es: "Diseño, Orquestación DevOps & Observabilidad",
+      en: "Design, DevOps Orchestration & Observability",
+    },
+    challenge: {
+      es: "Unificar la supervisión de múltiples aplicaciones y proyectos empresariales que operaban de forma dispersa sin observabilidad centralizada. El objetivo era evitar silos operativos, detectar cuellos de botella antes de que afectaran a los usuarios y eliminar el monitoreo manual mediante una solución contenerizada, escalable y reutilizable sin generar sobrecarga en los servidores.",
+      en: "Unifying the supervision of multiple enterprise applications and projects operating in isolation without centralized observability. The goal was to eliminate operational silos, detect bottlenecks proactively before impacting end-users, and eradicate manual server checks through a containerized, scalable, and reusable stack with minimal resource overhead.",
+    },
+    solution: {
+      es: "Diseñé y desplegué un stack completo de observabilidad multi-servicio sobre Docker Compose. Orquesté la captura de métricas temporales (Prometheus + Node Exporter + cAdvisor) con descubrimiento dinámico de targets por archivos (file_sd), agregación centralizada de logs de contenedores (Loki + Promtail), trazas distribuidas con OpenTelemetry Collector y Tempo, y enrutamiento inteligente de alertas automáticas hacia Discord y correo mediante Alertmanager. Adicionalmente, desarrollé kits reutilizables de integración para microservicios NestJS y APIs en Express.",
+      en: "Architected and deployed an end-to-end multi-service observability stack on Docker Compose. Orchestrated time-series metrics collection (Prometheus + Node Exporter + cAdvisor) with dynamic file-based service discovery (file_sd), centralized container log aggregation (Loki + Promtail), distributed tracing with OpenTelemetry Collector and Tempo, and automated smart alert routing to Discord and email via Alertmanager. Additionally engineered plug-and-play integration SDKs for NestJS and Express applications.",
     },
     description: {
-      es: "Diseño y desarrollo end-to-end de una plataforma de comercio electrónico multi-inquilino. Cuenta con catálogo reactivo, pagos integrados, colas asíncronas con Redis y despliegue continuo sin tiempo de inactividad sobre contenedores Docker.",
-      en: "End-to-end design and development of a multi-tenant e-commerce platform. Features a reactive catalog, integrated payment gateways, Redis-backed async queues, and zero-downtime continuous deployments on Docker containers.",
+      es: "Plataforma integral de observabilidad y telemetría empresarial de despliegue rápido. Centraliza en paneles interactivos de Grafana el estado de salud de la infraestructura host, el consumo de contenedores Docker, los logs estructurados y el tracing distribuido de múltiples proyectos conectados a una red de monitoreo compartida, con notificación de incidentes en tiempo real.",
+      en: "Turnkey enterprise observability and telemetry platform. Centralizes host infrastructure health, Docker container resource consumption, structured logs, and distributed request tracing across multiple connected projects into Grafana dashboards, with real-time proactive incident alerting.",
     },
     architecture: {
-      es: "Microservicios modulares con NestJS, frontend SSR con React/Next.js y orquestación Blue-Green en Nginx y Docker.",
-      en: "Modular microservices with NestJS, SSR frontend with React/Next.js, and Blue-Green orchestration on Nginx & Docker.",
+      es: "Orquestación contenerizada en Docker Compose: Grafana (UI), Prometheus (TSDB + File Service Discovery), Alertmanager (Webhooks Discord/SMTP), Loki + Promtail (Logs), Tempo + OTel Collector (Tracing OTLP), Node Exporter (Host) y cAdvisor (Contenedores), vinculados en red puente dedicada.",
+      en: "Containerized orchestration via Docker Compose: Grafana (UI), Prometheus (TSDB + File Service Discovery), Alertmanager (Discord/SMTP Webhooks), Loki + Promtail (Logs), Tempo + OTel Collector (OTLP Tracing), Node Exporter (Host), and cAdvisor (Containers), linked via a dedicated bridge network.",
     },
     media: {
       type: "image",
-      url: "/imgs/me-hero.png", // Usamos una imagen inicial disponible mientras el usuario suministra el arte específico o video
-      alt: "Plataforma E-commerce B2C Multi-Tenant",
+      url: "/imgs/stack-img.png", // Imagen preview principal de la card (o pega tu URL de S3)
+      alt: "Stack de Observabilidad y Telemetría Distribuida",
       aspectRatio: "16/9",
     },
+    // Galería multimedia para el Modal: puedes añadir todas las fotos y videos desde tu S3 aquí
+    gallery: [
+      /*
+      {
+        type: "video",
+        url: "https://tu-bucket.s3.amazonaws.com/videos/monitoring-demo.mp4",
+        poster: "https://tu-bucket.s3.amazonaws.com/posters/monitoring-poster.png",
+        alt: "Demostración de Telemetría y Dashboards en Vivo",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/grafana-dashboard.png",
+        alt: "Dashboards Interactivos en Grafana",
+      },
+      {
+        type: "image",
+        url: "https://tu-bucket.s3.amazonaws.com/imgs/loki-logs.png",
+        alt: "Exploración de Logs en Loki",
+      },
+      */
+    ],
     technologies: [
-      "NestJS",
-      "React",
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Redis",
       "Docker",
-      "Nginx",
-      "GitHub Actions",
+      "Prometheus",
+      "Grafana",
+      "Linux",
+      "Node.js",
     ],
     highlights: {
       es: [
-        "Despliegues continuos Blue-Green con cero caídas de servicio (Zero Downtime).",
-        "Aislamiento riguroso de esquemas y parametrización independiente por inquilino.",
-        "Colas de procesamiento asíncrono para notificaciones, reportes y conciliaciones.",
+        "Stack integral de observabilidad (Métricas, Logs, Trazas y Alertas) desplegable con Docker Compose.",
+        "Descubrimiento dinámico de nuevos servicios sin reinicio mediante configuración file_sd en Prometheus.",
+        "Agregación automática de logs de todos los contenedores Docker a través del socket con Promtail hacia Loki.",
+        "Tracing distribuido extremo a extremo con OpenTelemetry Collector y Grafana Tempo.",
+        "Alertas automatizadas y canalizadas hacia canales de Discord y correo electrónico mediante Alertmanager.",
+        "Kits de integración SDK modulares desarrollados para microservicios NestJS y APIs en Express.",
       ],
       en: [
-        "Blue-Green continuous deployments guaranteeing zero service downtime in production.",
-        "Strict schema isolation and independent tenant configuration.",
-        "Asynchronous job queues for notifications, reporting, and reconciliations.",
+        "Complete observability stack (Metrics, Logs, Traces & Alerts) deployable via Docker Compose.",
+        "Dynamic zero-restart service discovery for newly added application targets using Prometheus file_sd.",
+        "Automated Docker socket log aggregation across all active containers with Promtail shipping to Loki.",
+        "End-to-end distributed tracing pipelines with OpenTelemetry Collector and Grafana Tempo.",
+        "Automated alerting engine with webhook delivery to Discord channels and email via Alertmanager.",
+        "Modular plug-and-play integration SDK kits engineered for NestJS microservices and Express APIs.",
       ],
     },
     metrics: [
-      { label: "Disponibilidad", value: "99.98% Uptime" },
-      { label: "Despliegue", value: "Zero Downtime" },
-      { label: "Procesamiento", value: "Redis Queues" },
+      { label: "Servicios", value: "9 Contenedores" },
+      { label: "Alertas", value: "Email" },
+      { label: "Tracing", value: "OTel + Tempo" },
     ],
     links: {
-      live: "https://example.com/demo",
-      github: "https://github.com/AndresCardona10",
+      github: "https://github.com/CardonaAndres/MonitoringSystem",
     },
   },
   {
@@ -399,67 +433,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     ],
     links: {
       // Repositorio y accesos privados corporativos
-    },
-  },
-  {
-    id: "api-gateway-rate-limiter",
-    category: "backend",
-    isFeatured: false,
-    year: "2024",
-    status: {
-      es: "En Producción",
-      en: "In Production",
-    },
-    title: {
-      es: "API Gateway & Rate Limiting Distribuido",
-      en: "Distributed API Gateway & Rate Limiter",
-    },
-    tagline: {
-      es: "Gateway inverso de alta concurrencia con control de tasa token-bucket sobre Redis y auth JWT",
-      en: "High-concurrency reverse gateway featuring Redis token-bucket rate limiting and JWT auth",
-    },
-    description: {
-      es: "Gateway perimetral para proteger servicios internos contra picos de tráfico y ataques de denegación de servicio. Implementa algoritmo Token Bucket en memoria compartida con Redis, autenticación centralizada y observabilidad de peticiones.",
-      en: "Edge gateway safeguarding internal services from traffic surges and abuse. Employs Token Bucket algorithms backed by shared Redis clusters, centralized auth middleware, and comprehensive telemetry.",
-    },
-    architecture: {
-      es: "Node.js, Express, Redis Cluster, Docker y proxy reverso Nginx con balanceo round-robin.",
-      en: "Node.js, Express, Redis Cluster, Docker, and Nginx reverse proxy with round-robin balancing.",
-    },
-    media: {
-      type: "image",
-      url: "/imgs/stack-img.png",
-      alt: "API Gateway & Rate Limiting",
-      aspectRatio: "16/9",
-    },
-    technologies: [
-      "Node.js",
-      "Express",
-      "TypeScript",
-      "Redis",
-      "Docker",
-      "Nginx",
-      "Linux",
-    ],
-    highlights: {
-      es: [
-        "Capacidad de gestión de más de 12.000 req/s con latencia promedio menor a 8ms.",
-        "Algoritmo Token Bucket distribuido con políticas diferenciadas por plan de cliente.",
-        "Métricas en tiempo real y logs estructurados para auditoría de tráfico.",
-      ],
-      en: [
-        "Processes +12,000 req/s with median latency under 8ms.",
-        "Distributed Token Bucket algorithm with tier-based quota throttling.",
-        "Real-time telemetry and structured logging for comprehensive request auditing.",
-      ],
-    },
-    metrics: [
-      { label: "Throughput", value: "+12k req/s" },
-      { label: "Latencia P99", value: "< 8ms" },
-      { label: "Disponibilidad", value: "99.99%" },
-    ],
-    links: {
-      github: "https://github.com/AndresCardona10",
     },
   },
 ];

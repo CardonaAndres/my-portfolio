@@ -14,7 +14,10 @@ interface ProjectFeaturedCardProps {
 
 export const ProjectFeaturedCard = ({ project, locale, onSelect }: ProjectFeaturedCardProps) => {
   return (
-    <article className="relative w-full rounded-2xl border border-blue-500/35 bg-card/85 dark:bg-[#0c121e]/90 backdrop-blur-md p-5 sm:p-6 shadow-xl shadow-blue-500/5 hover:border-blue-500/70 transition-all duration-300 group flex flex-col gap-5">
+    <article
+      onClick={() => onSelect?.(project)}
+      className="relative w-full rounded-2xl border border-blue-500/35 bg-card/85 dark:bg-[#0c121e]/90 backdrop-blur-md p-5 sm:p-6 shadow-xl shadow-blue-500/5 hover:border-blue-500/70 transition-all duration-300 group flex flex-col gap-5 cursor-pointer"
+    >
       {/* Glow ambiental superior derecho */}
       <div
         aria-hidden="true"
@@ -132,7 +135,10 @@ export const ProjectFeaturedCard = ({ project, locale, onSelect }: ProjectFeatur
         <div className="flex flex-wrap items-center gap-2.5 pt-3 border-t border-border/50">
           <button
             type="button"
-            onClick={() => onSelect?.(project)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelect?.(project);
+            }}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 font-mono text-xs font-semibold border border-blue-500/30 transition-all cursor-pointer shadow-xs hover:-translate-y-0.5 active:translate-y-0"
           >
             <Maximize2 className="w-3.5 h-3.5" />
@@ -144,6 +150,7 @@ export const ProjectFeaturedCard = ({ project, locale, onSelect }: ProjectFeatur
               href={project.links.live}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-md shadow-blue-600/25 hover:shadow-blue-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
             >
               <span>{locale === "es" ? "Ver Demo en Vivo" : "Live Demo"}</span>
@@ -156,6 +163,7 @@ export const ProjectFeaturedCard = ({ project, locale, onSelect }: ProjectFeatur
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border/80 bg-card hover:bg-muted font-mono text-xs font-semibold text-foreground hover:border-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer shadow-2xs"
             >
               <GithubIcon className="w-3.5 h-3.5" size={14} />
